@@ -1,0 +1,14 @@
+@mixin text_cta($color, $border, $hover_color, $hover_border) {
+  color: $color;   
+  border-bottom: solid 2px $border;
+  padding-bottom: 1px;
+  @include transition(.5s, ease, all);
+  font-weight: 900;
+  &:hover {
+    text-decoration: none;
+    color: $hover_color;
+    border-bottom-color: $hover_border;
+    @include transition(.5s, ease, all);
+  }
+}
+

@@ -1,0 +1,28 @@
+###########
+## Common
+###########
+*.bak
+ignore/
+Desktop.in
+*.htaccess
+*Thumbs.db
+*.DS_Store
+*~imageoptim*
+
+####################
+## Grunt/Gulp Stuff
+####################
+.sass-cache
+node_modules/
+*.sass-cache*
+*node_modules*
+*npm-debug.log*
+*package-lock.json*
+
+########################
+# Compiled Gulp Files
+########################
+
+assets/js/app.js
+assets/js/lib.js
+assets/css/

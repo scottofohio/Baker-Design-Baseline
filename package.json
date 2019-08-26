@@ -1,0 +1,32 @@
+{
+  "name": "baker-design-baseline",
+  "description": "The best Grunt setup on this side of the Mississippi",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "",
+    "private": true
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-csssplit": "^0.4.0",
+    "grunt-kss": "^5.0.0",
+    "grunt-sass": "^1.2.1",
+    "grunt-sass-globbing": "^1.5.1",
+    "grunt-shell": "^2.0.0",
+    "grunt-wp-cli": "0.0.2",
+    "kss": "^3.0.0-beta.15",
+    "sass-globbing": "^1.0.0-alpha1"
+  },
+  "dependencies": {
+    "wp-cli": "0.0.5"
+  }
+}
