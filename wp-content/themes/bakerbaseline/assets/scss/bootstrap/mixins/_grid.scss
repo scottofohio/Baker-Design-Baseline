@@ -1,0 +1,110 @@
+/// Grid system
+//
+// Generate semantic grid columns with these mixins.
+
+@mixin make-container($container_size: full, $no_padding: false) {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  @if $container_size == full { 
+
+  } @else {
+  padding-left: 20px;
+    padding-right: 20px;
+    @include media-breakpoint-up(sm) { 
+      padding-left: 40px;
+      padding-right: 40px;
+    } 
+  }
+ 
+  @if $container_size == large {
+  max-width: 1480px;
+  } @else if $container_size == small {
+    max-width: 1120px;
+  } @else if $container_size == xsmall {
+    max-width: 900px;
+  } @else if $container_size == tiny {
+    max-width: 780px;
+  } @else if $container_size == full {
+    max-width: 100%;
+    padding: 0 80px;
+    padding: 0 $container-padding;
+    @if $no_padding == true {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+
+// For each breakpoint, define the maximum width of the container in a media query
+@mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+  @each $breakpoint, $container-max-width in $max-widths {
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      max-width: $container-max-width;
+    }
+  }
+}
+
+@mixin make-row($gridcount: $grid-columns, $usecontainerinrow: true, $gutter: $grid-gutter-width) {
+ 
+  display: -ms-flexbox;
+  display: flex;
+  
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  @if $usecontainerinrow == false {
+    margin-left: -$gutter / 2;
+    margin-right: -$gutter / 2;
+  }
+
+  @supports(display: grid) {
+    display: grid;
+    grid-template-columns: repeat($gridcount, 1fr);
+    grid-gap: $gutter;
+   
+    @if $usecontainerinrow == false {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+}
+
+@mixin make-col-ready($gutter: $grid-gutter-width) { 
+  position: relative;
+  // Prevent columns from becoming too narrow when at smaller grid tiers by
+  // always setting `width: 100%;`. This works because we use `flex` values
+  // later on to override this initial width.
+  width: 100%;
+  padding-right: $gutter / 2;
+  padding-left: $gutter / 2;
+
+  @supports(display: grid) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  
+}
+
+@mixin make-col($gridcol, $size, $gridsize: 0, $columns: $grid-columns) {
+  flex: 0 0 percentage($size / $columns);
+  -ms-flex: 0 0 percentage($size / $columns);
+  // Add a `max-width` to ensure content within each column does not blow out
+  // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
+  // do not appear to require this.
+  max-width: percentage($size / $columns);
+  @if $gridsize > 0 {
+    @supports(display: grid) {
+      max-width: 100%;
+      flex: none;
+      grid-column: $gridcol / span $gridsize;
+    }
+  }
+
+}
+
+@mixin make-col-offset($size, $columns: $grid-columns) {
+  $num: $size / $columns;
+  margin-left: if($num == 0, 0, percentage($num));
+}

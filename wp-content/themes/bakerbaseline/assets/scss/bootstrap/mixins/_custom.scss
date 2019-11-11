@@ -1,0 +1,17 @@
+@mixin mobile-menu-box-shadow($a, $b, $c, $d, $e, $f, $color) {
+  -webkit-box-shadow: $a $b $c $color, $d $e $f $color;
+  -moz-box-shadow: $a $b $c $color, $d $e $f $color;
+  -o-box-shadow: $a $b $c $color, $d $e $f $color;
+  -ms-box-shadow: $a $b $c $color, $d $e $f $color;
+  box-shadow: $a $b $c $color, $d $e $f $color;
+}
+
+
+@mixin transition($type: all, $time: 0.25s, $easing: cubic-bezier(0, 0.32, 0, 1.12)) {
+  -webkit-transition: $type $time $easing;
+  -moz-transition: $type $time $easing;
+  -ms-transition: $type $time $easing;
+  -o-transition: $type $time $easing;
+  transition: $type $time $easing;
+  // @include backface-visibility(hidden);
+}
