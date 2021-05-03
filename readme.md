@@ -13,17 +13,5 @@ This command will build all css and js files unminified and will help to alert o
 
 This command will build and minify all css and js files. 
 
-### Bootstrap 
-This theme is utilizing parts of Twitter Bootstrap that have been modified to be more semeantic. If you feel the need to include the class based twitter grid system you can enable it by uncommenting the `@import grid` in the `/assets/scss/bootstrap/boostrap.scss` file. 
-
-If you want to use the bootstrap grid mixins they have been modified to enable CSS grid with flexbox as the fallback. 
-
-In order to use the grid mixins you need to create a wrapper element and children elements in your html and apply the following mixins located in `/assets/scss/bootstrap/mixins/grid.scss`
-
-`@make-row();`
-`@make-col();`
-
-Most everything else is pretty standard bootstrap stuff.
-
 ## Assets 
 All theme images, css and js are in the assets folder. Do not use the style.css file in the root of the theme. 
