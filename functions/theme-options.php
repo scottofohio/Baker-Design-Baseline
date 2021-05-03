@@ -2,7 +2,7 @@
 
 /***********************************************************************
 
-Baker Design Theme 1.0
+BakerDesign
 General Options and functions
 
 /***********************************************************************/
@@ -22,7 +22,6 @@ add_image_size('fullsize1400', 1400, 700, array('center', 'center'));
 add_image_size('fullsize1200', 1200, 330, array('center', 'center'));
 add_image_size('square500', 500, 500, array('center', 'center'));
 add_image_size('square300', 300, 300, array('center', 'center'));
-add_image_size("600X400", 600, 400);
 
 /**
  * Remove post type supports
@@ -32,12 +31,6 @@ add_image_size("600X400", 600, 400);
  * @uses remove_post_type_support()
  */
 
-add_action('init', 'my_remove_editor_from_post_type');
-
-function my_remove_editor_from_post_type() {
-  remove_post_type_support('page', 'editor');
-  remove_post_type_support('tribe_events', 'editor');
-}
 
 function remove_post_custom_fields() {
   remove_meta_box('postcustom', 'tribe_events', 'normal');
@@ -221,23 +214,4 @@ function ajax_function() {
 add_filter('wpseo_metabox_prio', function () {return 'low';});
 add_filter('appip_metabox_priority_filter', function () {return 'low';});
 
-function get_depth($postid)
-{
-    $depth = ($postid == get_option('page_on_front')) ? -1 : 0;
-    while ($postid > 0) {
-        $postid = get_post_ancestors($postid);
-        $postid = $postid[0];
-        $depth++;
-    }
-    return $depth;
-}
 
-if (function_exists('acf_add_options_page')) {
-    acf_add_options_page(array(
-      'page_title' 	=> 'Footer',
-      'menu_title'	=> 'Footer',
-      'menu_slug' 	=> 'footer',
-      'capability'	=> 'edit_posts',
-      'redirect'		=> false
-  ));
-}

@@ -4,18 +4,24 @@
 *
 *
 * @package WordPress
-* @subpackage Baker Design Theme 1.0
+* @subpackage BakerDesign
 * @since 2.0
 **************************************************************** 
 ****************************************************************/
 // Initiate the global variable
 global $module;
 global $post;
-$module["module"] = get_post();
-$module["module_fields"] = get_fields( $module["module"]->ID);
-$url = get_bloginfo("url");
-$url_icon = get_stylesheet_directory_uri();
 
-get_header(); ?>
 
-<?php get_footer(); ?>
+get_header();
+
+while ( have_posts() ) : the_post(); ?>
+  <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <h1 class="post-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+    <?php the_content(); ?>
+    <a href="<?php the_permalink(); ?>">Read More</a>
+  </article><!-- #post-<?php the_ID(); ?><?php 
+endwhile; 
+
+
+get_footer();

@@ -1,0 +1,3092 @@
+/*-------------------------------------------------------*\
+    ANIMATIONS
+/*-------------------------------------------------------*/
+/**
+ * AVAILABLE CLASSES:
+ * ---------------------------------------------------
+ *
+ * RANDOM:
+ *  ‣ bounce, flash, pulse
+ *
+ * SWINGS & SHAKES:
+ *  ‣ rubberBand, shake, headShake, swing
+ *
+ * BOUNCES:
+ *  ‣ bounceIn, bounceInDown, bounceInLeft, bounceInRight, bounceInUp, bounceOut, bounceOutDown, bounceOutLeft, bounceOutRight, bounceOutUp
+ *
+ * FADES:
+ *  ‣ fadeIn, fadeOut, fadeInUp, fadeInDown, fadeInLeft, fadeInRight, fadeOutUp, fadeOutDown, fadeOutLeft, fadeOutRight,
+ *    fadeInRightBig, fadeInDownBig, fadeInUpBig, fadeOutDownBig, fadeOutLeftBig, fadeInLeftBig, fadeOutRightBig, fadeOutUpBig
+ *
+ * FLIPS:
+ *  ‣ flip, flipInX, flipInY, flipOutX, flipOutY
+ *
+ * LIGHT SPEED:
+ *  ‣ lightSpeedIn, lightSpeedOut
+ *
+ * ROTATES:
+ *  ‣ rotateIn, rotateInDownLeft, rotateInDownRight, rotateInUpLeft, rotateInUpRight,
+ *    rotateOut, rotateOutDownLeft, rotateOutDownRight, rotateOutUpLeft, rotateOutUpRight
+ *
+ * ROLLS:
+ *  ‣ rollIn, rollOut
+ *
+ * ZOOMS:
+ *  ‣ zoomIn, zoomInDown, zoomInLeft, zoomInRight, zoomInUp, zoomOut, zoomOutDown, zoomOutLeft, zoomOutRight, zoomOutUp
+ *
+ * SLIDES:
+ *  ‣ slideInDown, slideInLeft, slideInRight, slideInUp, slideOutDown, slideOutLeft, slideOutRight, slideOutUp, SlideOutUp
+ *
+ * OTHER:
+ *  ‣ hinge, jackInTheBox, heartBeat, jello, wobble, tada, swing, tada, wobble, jello
+ */
+/**
+ * Animate.css
+ *
+ * @link http://daneden.me/animate
+ * @version 3.7.0.2
+ * @license MIT license [http://opensource.org/licenses/MIT]
+ */
+$atransitions: (1: cubic-bezier(0.215, 0.61, 0.355, 1), 2: cubic-bezier(0.755, 0.05, 0.855, 0.06));
+$atransformations: (1: translate3d(0, 0, 0), 2: translate3d(0, -30px, 0), 3: translate3d(0, -15px, 0), 4: translate3d(0, -4px, 0));
+/**
+ * Animated Effect - 'Bounce'
+ */
+@-webkit-keyframes bounce {
+    from, 20%, 53%, 80%, to {
+        @include prefixer(animation-timing-function, grabs($atransitions, 1), "webkit");
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+    40%, 43% {
+        @include prefixer(animation-timing-function, grabs($atransitions, 2), "webkit");
+        @include prefixer(transform, grabs($atransformations, 2), "webkit");
+    }
+    70% {
+        @include prefixer(animation-timing-function, grabs($atransitions, 2), "webkit");
+        @include prefixer(transform, grabs($atransformations, 3), "webkit");
+    }
+    90% {
+        @include prefixer(transform, grabs($atransformations, 4), "webkit");
+    }
+}
+
+@keyframes bounce {
+    from, 20%, 53%, 80%, to {
+        @include prefixer(animation-timing-function, grabs($atransitions, 1), "webkit");
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+    40%, 43% {
+        @include prefixer(animation-timing-function, grabs($atransitions, 2), "webkit");
+        @include prefixer(transform, grabs($atransformations, 2), "webkit");
+    }
+    70% {
+        @include prefixer(transform, grabs($atransformations, 2), "webkit");
+        @include prefixer(transform, grabs($atransformations, 3), "webkit");
+    }
+    90% {
+        @include prefixer(transform, grabs($atransformations, 4), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'flash'
+ */
+@-webkit-keyframes flash {
+    from, 50%, to {
+        opacity: 1;
+    }
+    25%, 75% {
+        opacity: 0;
+    }
+}
+
+@keyframes flash {
+    from, 50%, to {
+        opacity: 1;
+    }
+    25%, 75% {
+        opacity: 0;
+    }
+}
+/**
+ * Animated Effect - 'pulse'
+ */
+@-webkit-keyframes pulse {
+    from {
+        @include prefixer(transform, scale3d(1, 1, 1), "webkit");
+    }
+    50% {
+        @include prefixer(transform, scale3d(1.05, 1.05, 1.05), "webkit");
+    }
+    to {
+        @include prefixer(transform, scale3d(1, 1, 1), "webkit");
+    }
+}
+
+@keyframes pulse {
+    from {
+        @include prefixer(transform, scale3d(1, 1, 1), "webkit");
+    }
+    50% {
+        @include prefixer(transform, scale3d(1.05, 1.05, 1.05), "webkit");
+    }
+    to {
+        @include prefixer(transform, scale3d(1, 1, 1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'rubberBand'
+ */
+@-webkit-keyframes rubberBand {
+    from {
+        @include prefixer(transform, scale3d(1, 1, 1), "webkit");
+    }
+    30% {
+        @include prefixer(transform, scale3d(1.25, 0.75, 1), "webkit");
+    }
+    40% {
+        @include prefixer(transform, scale3d(0.75, 1.25, 1), "webkit");
+    }
+    50% {
+        @include prefixer(transform, scale3d(1.15, 0.85, 1), "webkit");
+    }
+    65% {
+        @include prefixer(transform, scale3d(0.95, 1.05, 1), "webkit");
+    }
+    75% {
+        @include prefixer(transform, scale3d(1.05, 0.95, 1), "webkit");
+    }
+    to {
+        @include prefixer(transform, scale3d(1, 1, 1), "webkit");
+    }
+}
+
+@keyframes rubberBand {
+    from {
+        @include prefixer(transform, scale3d(1, 1, 1), "webkit");
+    }
+    30% {
+        @include prefixer(transform, scale3d(1.25, 0.75, 1), "webkit");
+    }
+    40% {
+        @include prefixer(transform, scale3d(0.75, 1.25, 1), "webkit");
+    }
+    50% {
+        @include prefixer(transform, scale3d(1.15, 0.85, 1), "webkit");
+    }
+    65% {
+        @include prefixer(transform, scale3d(0.95, 1.05, 1), "webkit");
+    }
+    75% {
+        @include prefixer(transform, scale3d(1.05, 0.95, 1), "webkit");
+    }
+    to {
+        @include prefixer(transform, scale3d(1, 1, 1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'shake'
+ */
+@-webkit-keyframes shake {
+    from, to {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+    10%, 30%, 50%, 70%, 90% {
+        @include prefixer(transform, translate3d(-10px, 0, 0), "webkit");
+    }
+    20%, 40%, 60%, 80% {
+        @include prefixer(transform, translate3d(10px, 0, 0), "webkit");
+    }
+}
+
+@keyframes shake {
+    from, to {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+    10%, 30%, 50%, 70%, 90% {
+        @include prefixer(transform, translate3d(-10px, 0, 0), "webkit");
+    }
+    20%, 40%, 60%, 80% {
+        @include prefixer(transform, translate3d(10px, 0, 0), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'headShake'
+ */
+@-webkit-keyframes headShake {
+    0% {
+        @include prefixer(transform, translateX(0), "webkit");
+    }
+    6.5% {
+        @include prefixer(transform, translateX(-6px) rotateY(-9deg), "webkit");
+    }
+    18.5% {
+        @include prefixer(transform, translateX(5px) rotateY(7deg), "webkit");
+    }
+    31.5% {
+        @include prefixer(transform, translateX(-3px) rotateY(-5deg), "webkit");
+    }
+    43.5% {
+        @include prefixer(transform, translateX(2px) rotateY(3deg), "webkit");
+    }
+    50% {
+        @include prefixer(transform, translateX(0), "webkit");
+    }
+}
+
+@keyframes headShake {
+    0% {
+        @include prefixer(transform, translateX(0), "webkit");
+    }
+    6.5% {
+        @include prefixer(transform, translateX(-6px) rotateY(-9deg), "webkit");
+    }
+    18.5% {
+        @include prefixer(transform, translateX(5px) rotateY(7deg), "webkit");
+    }
+    31.5% {
+        @include prefixer(transform, translateX(-3px) rotateY(-5deg), "webkit");
+    }
+    43.5% {
+        @include prefixer(transform, translateX(2px) rotateY(3deg), "webkit");
+    }
+    50% {
+        @include prefixer(transform, translateX(0), "webkit");
+    }
+}
+
+.headShake {
+    @include prefixer(animation-timing-function, ease-in-out, "webkit");
+    @include prefixer(animation-name, headShake, "webkit");
+}
+/**
+ * Animated Effect - 'swing'
+ */
+@-webkit-keyframes swing {
+    20% {
+        @include prefixer(transform, rotate3d(0, 0, 1, 15deg), "webkit");
+    }
+    40% {
+        @include prefixer(transform, rotate3d(0, 0, 1, -10deg), "webkit");
+    }
+    60% {
+        @include prefixer(transform, rotate3d(0, 0, 1, 5deg), "webkit");
+    }
+    80% {
+        @include prefixer(transform, rotate3d(0, 0, 1, -5deg), "webkit");
+    }
+    to {
+        @include prefixer(transform, rotate3d(0, 0, 1, 0deg), "webkit");
+    }
+}
+
+@keyframes swing {
+    20% {
+        @include prefixer(transform, rotate3d(0, 0, 1, 15deg), "webkit");
+    }
+    40% {
+        @include prefixer(transform, rotate3d(0, 0, 1, -10deg), "webkit");
+    }
+    60% {
+        @include prefixer(transform, rotate3d(0, 0, 1, 5deg), "webkit");
+    }
+    80% {
+        @include prefixer(transform, rotate3d(0, 0, 1, -5deg), "webkit");
+    }
+    to {
+        @include prefixer(transform, rotate3d(0, 0, 1, 0deg), "webkit");
+    }
+}
+
+.swing {
+    @include prefixer(transform-origin, top center, "webkit");
+    @include prefixer(animation-name, swing, "webkit");
+}
+/**
+ * Animated Effect - 'tada'
+ */
+@-webkit-keyframes tada {
+    from {
+        @include prefixer(transform, scale3d(1, 1, 1), "webkit");
+    }
+    10%, 20% {
+        @include prefixer(transform, scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg), "webkit");
+    }
+    30%, 50%, 70%, 90% {
+        @include prefixer(transform, scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg), "webkit");
+    }
+    40%, 60%, 80% {
+        @include prefixer(transform, scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg), "webkit");
+    }
+    to {
+        @include prefixer(transform, scale3d(1, 1, 1), "webkit");
+    }
+}
+
+@keyframes tada {
+    from {
+        @include prefixer(transform, scale3d(1, 1, 1), "webkit");
+    }
+    10%, 20% {
+        @include prefixer(transform, scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg), "webkit");
+    }
+    30%, 50%, 70%, 90% {
+        @include prefixer(transform, scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg), "webkit");
+    }
+    40%, 60%, 80% {
+        @include prefixer(transform, scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg), "webkit");
+    }
+    to {
+        @include prefixer(transform, scale3d(1, 1, 1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'wobble'
+ */
+@-webkit-keyframes wobble {
+    from {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+    15% {
+        @include prefixer(transform, translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg), "webkit");
+    }
+    30% {
+        @include prefixer(transform, translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg), "webkit");
+    }
+    45% {
+        @include prefixer(transform, translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg), "webkit");
+    }
+    60% {
+        @include prefixer(transform, translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg), "webkit");
+    }
+    75% {
+        @include prefixer(transform, translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg), "webkit");
+    }
+    to {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+
+@keyframes wobble {
+    from {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+    15% {
+        @include prefixer(transform, translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg), "webkit");
+    }
+    30% {
+        @include prefixer(transform, translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg), "webkit");
+    }
+    45% {
+        @include prefixer(transform, translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg), "webkit");
+    }
+    60% {
+        @include prefixer(transform, translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg), "webkit");
+    }
+    75% {
+        @include prefixer(transform, translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg), "webkit");
+    }
+    to {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'jello'
+ */
+@-webkit-keyframes jello {
+    from, 11.1%, to {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+    22.2% {
+        @include prefixer(transform, skewX(-12.5deg) skewY(-12.5deg), "webkit");
+    }
+    33.3% {
+        @include prefixer(transform, skewX(6.25deg) skewY(6.25deg), "webkit");
+    }
+    44.4% {
+        @include prefixer(transform, skewX(-3.125deg) skewY(-3.125deg), "webkit");
+    }
+    55.5% {
+        @include prefixer(transform, skewX(1.5625deg) skewY(1.5625deg), "webkit");
+    }
+    66.6% {
+        @include prefixer(transform, skewX(-0.78125deg) skewY(-0.78125deg), "webkit");
+    }
+    77.7% {
+        @include prefixer(transform, skewX(0.390625deg) skewY(0.390625deg), "webkit");
+    }
+    88.8% {
+        @include prefixer(transform, skewX(-0.1953125deg) skewY(-0.1953125deg), "webkit");
+    }
+}
+
+@keyframes jello {
+    from, 11.1%, to {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+    22.2% {
+        @include prefixer(transform, skewX(-12.5deg) skewY(-12.5deg), "webkit");
+    }
+    33.3% {
+        @include prefixer(transform, skewX(6.25deg) skewY(6.25deg), "webkit");
+    }
+    44.4% {
+        @include prefixer(transform, skewX(-3.125deg) skewY(-3.125deg), "webkit");
+    }
+    55.5% {
+        @include prefixer(transform, skewX(1.5625deg) skewY(1.5625deg), "webkit");
+    }
+    66.6% {
+        @include prefixer(transform, skewX(-0.78125deg) skewY(-0.78125deg), "webkit");
+    }
+    77.7% {
+        @include prefixer(transform, skewX(0.390625deg) skewY(0.390625deg), "webkit");
+    }
+    88.8% {
+        @include prefixer(transform, skewX(-0.1953125deg) skewY(-0.1953125deg), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'heartBeat'
+ */
+@-webkit-keyframes heartBeat {
+    0% {
+        @include prefixer(transform, scale(1), "webkit");
+    }
+    14% {
+        @include prefixer(transform, scale(1.3), "webkit");
+    }
+    28% {
+        @include prefixer(transform, scale(1), "webkit");
+    }
+    42% {
+        @include prefixer(transform, scale(1.3), "webkit");
+    }
+    70% {
+        @include prefixer(transform, scale(1), "webkit");
+    }
+}
+
+@keyframes heartBeat {
+    0% {
+        @include prefixer(transform, scale(1), "webkit");
+    }
+    14% {
+        @include prefixer(transform, scale(1.3), "webkit");
+    }
+    28% {
+        @include prefixer(transform, scale(1), "webkit");
+    }
+    42% {
+        @include prefixer(transform, scale(1.3), "webkit");
+    }
+    70% {
+        @include prefixer(transform, scale(1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'bounceIn'
+ */
+@-webkit-keyframes bounceIn {
+    from, 20%, 40%, 60%, 80%, to {
+        @include prefixer(animation-timing-function, grabs($atransitions, 1), "webkit");
+    }
+    0% {
+        opacity: 0;
+        @include prefixer(transform, scale3d(0.3, 0.3, 0.3), "webkit");
+    }
+    20% {
+        @include prefixer(transform, scale3d(1.1, 1.1, 1.1), "webkit");
+    }
+    40% {
+        @include prefixer(transform, scale3d(0.9, 0.9, 0.9), "webkit");
+    }
+    60% {
+        opacity: 1;
+        @include prefixer(transform, scale3d(1.03, 1.03, 1.03), "webkit");
+    }
+    80% {
+        @include prefixer(transform, scale3d(0.97, 0.97, 0.97), "webkit");
+    }
+    to {
+        opacity: 1;
+        @include prefixer(transform, scale3d(1, 1, 1), "webkit");
+    }
+}
+
+@keyframes bounceIn {
+    from, 20%, 40%, 60%, 80%, to {
+        @include prefixer(animation-timing-function, grabs($atransitions, 1), "webkit");
+    }
+    0% {
+        opacity: 0;
+        @include prefixer(transform, scale3d(0.3, 0.3, 0.3), "webkit");
+    }
+    20% {
+        @include prefixer(transform, scale3d(1.1, 1.1, 1.1), "webkit");
+    }
+    40% {
+        @include prefixer(transform, scale3d(0.9, 0.9, 0.9), "webkit");
+    }
+    60% {
+        opacity: 1;
+        @include prefixer(transform, scale3d(1.03, 1.03, 1.03), "webkit");
+    }
+    80% {
+        @include prefixer(transform, scale3d(0.97, 0.97, 0.97), "webkit");
+    }
+    to {
+        opacity: 1;
+        @include prefixer(transform, scale3d(1, 1, 1), "webkit");
+    }
+}
+
+.bounceIn {
+    @include prefixer(animation-duration, 0.75s, "webkit");
+    @include prefixer(animation-name, bounceIn, "webkit");
+}
+/**
+ * Animated Effect - 'bounceInDown'
+ */
+@-webkit-keyframes bounceInDown {
+    from, 60%, 75%, 90%, to {
+        @include prefixer(animation-timing-function, grabs($atransitions, 1), "webkit");
+    }
+    0% {
+        opacity: 0;
+        @include prefixer(transform, translate3d(0, -3000px, 0), "webkit");
+    }
+    60% {
+        opacity: 1;
+        @include prefixer(transform, translate3d(0, 25px, 0), "webkit");
+    }
+    75% {
+        @include prefixer(transform, translate3d(0, -10px, 0), "webkit");
+    }
+    90% {
+        @include prefixer(transform, translate3d(0, 5px, 0), "webkit");
+    }
+    to {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+
+@keyframes bounceInDown {
+    from, 60%, 75%, 90%, to {
+        @include prefixer(animation-timing-function, grabs($atransitions, 1), "webkit");
+    }
+    0% {
+        opacity: 0;
+        @include prefixer(transform, translate3d(0, -3000px, 0), "webkit");
+    }
+    60% {
+        opacity: 1;
+        @include prefixer(transform, translate3d(0, 25px, 0), "webkit");
+    }
+    75% {
+        @include prefixer(transform, translate3d(0, -10px, 0), "webkit");
+    }
+    90% {
+        @include prefixer(transform, translate3d(0, 5px, 0), "webkit");
+    }
+    to {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'bounceInLeft'
+ */
+@-webkit-keyframes bounceInLeft {
+    from, 60%, 75%, 90%, to {
+        @include prefixer(animation-timing-function, grabs($atransitions, 1), "webkit");
+    }
+    0% {
+        opacity: 0;
+        @include prefixer(transform, translate3d(-3000px, 0, 0), "webkit");
+    }
+    60% {
+        opacity: 1;
+        @include prefixer(transform, translate3d(25px, 0, 0), "webkit");
+    }
+    75% {
+        @include prefixer(transform, translate3d(-10px, 0, 0), "webkit");
+    }
+    90% {
+        @include prefixer(transform, translate3d(5px, 0, 0), "webkit");
+    }
+    to {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+
+@keyframes bounceInLeft {
+    from, 60%, 75%, 90%, to {
+        @include prefixer(animation-timing-function, grabs($atransitions, 1), "webkit");
+    }
+    0% {
+        opacity: 0;
+        @include prefixer(transform, translate3d(-3000px, 0, 0), "webkit");
+    }
+    60% {
+        opacity: 1;
+        @include prefixer(transform, translate3d(25px, 0, 0), "webkit");
+    }
+    75% {
+        @include prefixer(transform, translate3d(-10px, 0, 0), "webkit");
+    }
+    90% {
+        @include prefixer(transform, translate3d(5px, 0, 0), "webkit");
+    }
+    to {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'bounceInRight'
+ */
+@-webkit-keyframes bounceInRight {
+    from, 60%, 75%, 90%, to {
+        @include prefixer(animation-timing-function, grabs($atransitions, 1), "webkit");
+    }
+    from {
+        opacity: 0;
+        @include prefixer(transform, translate3d(3000px, 0, 0), "webkit");
+    }
+    60% {
+        opacity: 1;
+        @include prefixer(transform, translate3d(-25px, 0, 0), "webkit");
+    }
+    75% {
+        @include prefixer(transform, translate3d(10px, 0, 0), "webkit");
+    }
+    90% {
+        @include prefixer(transform, translate3d(-5px, 0, 0), "webkit");
+    }
+    to {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+
+@keyframes bounceInRight {
+    from, 60%, 75%, 90%, to {
+        @include prefixer(animation-timing-function, grabs($atransitions, 1), "webkit");
+    }
+    from {
+        opacity: 0;
+        @include prefixer(transform, translate3d(3000px, 0, 0), "webkit");
+    }
+    60% {
+        opacity: 1;
+        @include prefixer(transform, translate3d(-25px, 0, 0), "webkit");
+    }
+    75% {
+        @include prefixer(transform, translate3d(10px, 0, 0), "webkit");
+    }
+    90% {
+        @include prefixer(transform, translate3d(-5px, 0, 0), "webkit");
+    }
+    to {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'bounceInUp'
+ */
+@-webkit-keyframes bounceInUp {
+    from, 60%, 75%, 90%, to {
+        @include prefixer(animation-timing-function, grabs($atransitions, 1), "webkit");
+    }
+    from {
+        opacity: 0;
+        @include prefixer(transform, translate3d(0, 3000px, 0), "webkit");
+    }
+    60% {
+        opacity: 1;
+        @include prefixer(transform, translate3d(0, -20px, 0), "webkit");
+    }
+    75% {
+        @include prefixer(transform, translate3d(0, 10px, 0), "webkit");
+    }
+    90% {
+        @include prefixer(transform, translate3d(0, -5px, 0), "webkit");
+    }
+    to {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+
+@keyframes bounceInUp {
+    from, 60%, 75%, 90%, to {
+        @include prefixer(animation-timing-function, grabs($atransitions, 1), "webkit");
+    }
+    from {
+        opacity: 0;
+        @include prefixer(transform, translate3d(0, 3000px, 0), "webkit");
+    }
+    60% {
+        opacity: 1;
+        @include prefixer(transform, translate3d(0, -20px, 0), "webkit");
+    }
+    75% {
+        @include prefixer(transform, translate3d(0, 10px, 0), "webkit");
+    }
+    90% {
+        @include prefixer(transform, translate3d(0, -5px, 0), "webkit");
+    }
+    to {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'bounceOut'
+ */
+@-webkit-keyframes bounceOut {
+    20% {
+        @include prefixer(transform, scale3d(0.9, 0.9, 0.9), "webkit");
+    }
+    50%, 55% {
+        opacity: 1;
+        @include prefixer(transform, scale3d(1.1, 1.1, 1.1), "webkit");
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, scale3d(0.3, 0.3, 0.3), "webkit");
+    }
+}
+
+@keyframes bounceOut {
+    20% {
+        @include prefixer(transform, scale3d(0.9, 0.9, 0.9), "webkit");
+    }
+    50%, 55% {
+        opacity: 1;
+        @include prefixer(transform, scale3d(1.1, 1.1, 1.1), "webkit");
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, scale3d(0.3, 0.3, 0.3), "webkit");
+    }
+}
+
+.bounceOut {
+    @include prefixer(animation-duration, 0.75s, "webkit");
+    @include prefixer(animation-name, bounceOut, "webkit");
+}
+/**
+ * Animated Effect - 'bounceOutDown'
+ */
+@-webkit-keyframes bounceOutDown {
+    20% {
+        @include prefixer(transform, translate3d(0, 10px, 0), "webkit");
+    }
+    40%, 45% {
+        opacity: 1;
+        @include prefixer(transform, translate3d(0, -20px, 0), "webkit");
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, translate3d(0, 2000px, 0), "webkit");
+    }
+}
+
+@keyframes bounceOutDown {
+    20% {
+        @include prefixer(transform, translate3d(0, 10px, 0), "webkit");
+    }
+    40%, 45% {
+        opacity: 1;
+        @include prefixer(transform, translate3d(0, -20px, 0), "webkit");
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, translate3d(0, 2000px, 0), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'bounceOutLeft'
+ */
+@-webkit-keyframes bounceOutLeft {
+    20% {
+        opacity: 1;
+        @include prefixer(transform, translate3d(20px, 0, 0), "webkit");
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, translate3d(-2000px, 0, 0), "webkit");
+    }
+}
+
+@keyframes bounceOutLeft {
+    20% {
+        opacity: 1;
+        @include prefixer(transform, translate3d(20px, 0, 0), "webkit");
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, translate3d(-2000px, 0, 0), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'bounceOutRight'
+ */
+@-webkit-keyframes bounceOutRight {
+    20% {
+        opacity: 1;
+        @include prefixer(transform, translate3d(-20px, 0, 0), "webkit");
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, translate3d(2000px, 0, 0), "webkit");
+    }
+}
+
+@keyframes bounceOutRight {
+    20% {
+        opacity: 1;
+        @include prefixer(transform, translate3d(-20px, 0, 0), "webkit");
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, translate3d(2000px, 0, 0), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'bounceOutUp'
+ */
+@-webkit-keyframes bounceOutUp {
+    20% {
+        @include prefixer(transform, translate3d(0, -10px, 0), "webkit");
+    }
+    40%, 45% {
+        opacity: 1;
+        @include prefixer(transform, translate3d(0, 20px, 0), "webkit");
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, translate3d(0, -2000px, 0), "webkit");
+    }
+}
+
+@keyframes bounceOutUp {
+    20% {
+        @include prefixer(transform, translate3d(0, -10px, 0), "webkit");
+    }
+    40%, 45% {
+        opacity: 1;
+        @include prefixer(transform, translate3d(0, 20px, 0), "webkit");
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, translate3d(0, -2000px, 0), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'fadeIn'
+ */
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/**
+ * Animated Effect - 'fadeInDown'
+ */
+@-webkit-keyframes fadeInDown {
+    from {
+        opacity: 0;
+        @include prefixer(transform, translate3d(0, -100%, 0), "webkit");
+    }
+    to {
+        opacity: 1;
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        @include prefixer(transform, translate3d(0, -100%, 0), "webkit");
+    }
+    to {
+        opacity: 1;
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'fadeInDownBig'
+ */
+@-webkit-keyframes fadeInDownBig {
+    from {
+        opacity: 0;
+        @include prefixer(transform, translate3d(0, -2000px, 0), "webkit");
+    }
+    to {
+        opacity: 1;
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+
+@keyframes fadeInDownBig {
+    from {
+        opacity: 0;
+        @include prefixer(transform, translate3d(0, -2000px, 0), "webkit");
+    }
+    to {
+        opacity: 1;
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'fadeInLeft'
+ */
+@-webkit-keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        @include prefixer(transform, translate3d(-100%, 0, 0), "webkit");
+    }
+    to {
+        opacity: 1;
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        @include prefixer(transform, translate3d(-100%, 0, 0), "webkit");
+    }
+    to {
+        opacity: 1;
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'fadeInLeftBig'
+ */
+@-webkit-keyframes fadeInLeftBig {
+    from {
+        opacity: 0;
+        @include prefixer(transform, translate3d(-2000px, 0, 0), "webkit");
+    }
+    to {
+        opacity: 1;
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+
+@keyframes fadeInLeftBig {
+    from {
+        opacity: 0;
+        @include prefixer(transform, translate3d(-2000px, 0, 0), "webkit");
+    }
+    to {
+        opacity: 1;
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'fadeInRight'
+ */
+@-webkit-keyframes fadeInRight {
+    from {
+        opacity: 0;
+        @include prefixer(transform, translate3d(100%, 0, 0), "webkit");
+    }
+    to {
+        opacity: 1;
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        @include prefixer(transform, translate3d(100%, 0, 0), "webkit");
+    }
+    to {
+        opacity: 1;
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'fadeInRightBig'
+ */
+@-webkit-keyframes fadeInRightBig {
+    from {
+        opacity: 0;
+        @include prefixer(transform, translate3d(2000px, 0, 0), "webkit");
+    }
+    to {
+        opacity: 1;
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+
+@keyframes fadeInRightBig {
+    from {
+        opacity: 0;
+        @include prefixer(transform, translate3d(2000px, 0, 0), "webkit");
+    }
+    to {
+        opacity: 1;
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'fadeInUp'
+ */
+@-webkit-keyframes fadeInUp {
+    from {
+        opacity: 0;
+        @include prefixer(transform, translate3d(0, 100%, 0), "webkit");
+    }
+    to {
+        opacity: 1;
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        @include prefixer(transform, translate3d(0, 100%, 0), "webkit");
+    }
+    to {
+        opacity: 1;
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'fadeInUpBig'
+ */
+@-webkit-keyframes fadeInUpBig {
+    from {
+        opacity: 0;
+        @include prefixer(transform, translate3d(0, 2000px, 0), "webkit");
+    }
+    to {
+        opacity: 1;
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+
+@keyframes fadeInUpBig {
+    from {
+        opacity: 0;
+        @include prefixer(transform, translate3d(0, 2000px, 0), "webkit");
+    }
+    to {
+        opacity: 1;
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'fadeOut'
+ */
+@-webkit-keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+/**
+ * Animated Effect - 'fadeOutDown'
+ */
+@-webkit-keyframes fadeOutDown {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, translate3d(0, 100%, 0), "webkit");
+    }
+}
+
+@keyframes fadeOutDown {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, translate3d(0, 100%, 0), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'fadeOutDownBig'
+ */
+@-webkit-keyframes fadeOutDownBig {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, translate3d(0, 2000px, 0), "webkit");
+    }
+}
+
+@keyframes fadeOutDownBig {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, translate3d(0, 2000px, 0), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'fadeOutLeft'
+ */
+@-webkit-keyframes fadeOutLeft {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, translate3d(-100%, 0, 0), "webkit");
+    }
+}
+
+@keyframes fadeOutLeft {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, translate3d(-100%, 0, 0), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'fadeOutLeftBig'
+ */
+@-webkit-keyframes fadeOutLeftBig {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, translate3d(-2000px, 0, 0), "webkit");
+    }
+}
+
+@keyframes fadeOutLeftBig {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, translate3d(-2000px, 0, 0), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'fadeOutRight'
+ */
+@-webkit-keyframes fadeOutRight {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, translate3d(100%, 0, 0), "webkit");
+    }
+}
+
+@keyframes fadeOutRight {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, translate3d(100%, 0, 0), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'fadeOutRightBig'
+ */
+@-webkit-keyframes fadeOutRightBig {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, translate3d(2000px, 0, 0), "webkit");
+    }
+}
+
+@keyframes fadeOutRightBig {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, translate3d(2000px, 0, 0), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'fadeOutUp'
+ */
+@-webkit-keyframes fadeOutUp {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, translate3d(0, -100%, 0), "webkit");
+    }
+}
+
+@keyframes fadeOutUp {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, translate3d(0, -100%, 0), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'fadeOutUpBig'
+ */
+@-webkit-keyframes fadeOutUpBig {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, translate3d(0, -2000px, 0), "webkit");
+    }
+}
+
+@keyframes fadeOutUpBig {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, translate3d(0, -2000px, 0), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'flip'
+ */
+@-webkit-keyframes flip {
+    from {
+        @include prefixer(transform, perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, -360deg), "webkit");
+        @include prefixer(animation-timing-function, ease-out, "webkit");
+    }
+    40% {
+        @include prefixer(transform, perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg), "webkit");
+        @include prefixer(animation-timing-function, ease-out, "webkit");
+    }
+    50% {
+        @include prefixer(transform, perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg), "webkit");
+        @include prefixer(animation-timing-function, ease-in, "webkit");
+    }
+    80% {
+        @include prefixer(transform, perspective(400px) scale3d(0.95, 0.95, 0.95) translate3d(0, 0, 0) rotate3d(0, 1, 0, 0deg), "webkit");
+        @include prefixer(animation-timing-function, ease-in, "webkit");
+    }
+    to {
+        @include prefixer(transform, perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, 0deg), "webkit");
+        @include prefixer(animation-timing-function, ease-in, "webkit");
+    }
+}
+
+@keyframes flip {
+    from {
+        @include prefixer(transform, perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, -360deg), "webkit");
+        @include prefixer(animation-timing-function, ease-out, "webkit");
+    }
+    40% {
+        @include prefixer(transform, perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg), "webkit");
+        @include prefixer(animation-timing-function, ease-out, "webkit");
+    }
+    50% {
+        @include prefixer(transform, perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg), "webkit");
+        @include prefixer(animation-timing-function, ease-in, "webkit");
+    }
+    80% {
+        @include prefixer(transform, perspective(400px) scale3d(0.95, 0.95, 0.95) translate3d(0, 0, 0) rotate3d(0, 1, 0, 0deg), "webkit");
+        @include prefixer(animation-timing-function, ease-in, "webkit");
+    }
+    to {
+        @include prefixer(transform, perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, 0deg), "webkit");
+        @include prefixer(animation-timing-function, ease-in, "webkit");
+    }
+}
+
+.animated.flip {
+    -webkit-backface-visibility: visible;
+    backface-visibility: visible;
+    @include prefixer(animation-name, flip, "webkit");
+}
+/**
+ * Animated Effect - 'flipInX'
+ */
+@-webkit-keyframes flipInX {
+    from {
+        @include prefixer(transform, perspective(400px) rotate3d(1, 0, 0, 90deg), "webkit");
+        @include prefixer(animation-timing-function, ease-in, "webkit");
+        opacity: 0;
+    }
+    40% {
+        @include prefixer(transform, perspective(400px) rotate3d(1, 0, 0, -20deg), "webkit");
+        @include prefixer(animation-timing-function, ease-in, "webkit");
+    }
+    60% {
+        @include prefixer(transform, perspective(400px) rotate3d(1, 0, 0, 10deg), "webkit");
+        opacity: 1;
+    }
+    80% {
+        @include prefixer(transform, perspective(400px) rotate3d(1, 0, 0, -5deg), "webkit");
+    }
+    to {
+        @include prefixer(transform, perspective(400px), "webkit");
+    }
+}
+
+@keyframes flipInX {
+    from {
+        @include prefixer(transform, perspective(400px) rotate3d(1, 0, 0, 90deg), "webkit");
+        @include prefixer(animation-timing-function, ease-in, "webkit");
+        opacity: 0;
+    }
+    40% {
+        @include prefixer(transform, perspective(400px) rotate3d(1, 0, 0, -20deg), "webkit");
+        @include prefixer(animation-timing-function, ease-in, "webkit");
+    }
+    60% {
+        @include prefixer(transform, perspective(400px) rotate3d(1, 0, 0, 10deg), "webkit");
+        opacity: 1;
+    }
+    80% {
+        @include prefixer(transform, perspective(400px) rotate3d(1, 0, 0, -5deg), "webkit");
+    }
+    to {
+        @include prefixer(transform, perspective(400px), "webkit");
+    }
+}
+
+.flipInX {
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    @include prefixer(animation-name, flipInX, "webkit");
+}
+/**
+ * Animated Effect - 'flipInY'
+ */
+@-webkit-keyframes flipInY {
+    from {
+        @include prefixer(transform, perspective(400px) rotate3d(0, 1, 0, 90deg), "webkit");
+        @include prefixer(animation-timing-function, ease-in, "webkit");
+        opacity: 0;
+    }
+    40% {
+        @include prefixer(transform, perspective(400px) rotate3d(0, 1, 0, -20deg), "webkit");
+        @include prefixer(animation-timing-function, ease-in, "webkit");
+    }
+    60% {
+        @include prefixer(transform, perspective(400px) rotate3d(0, 1, 0, 10deg), "webkit");
+        opacity: 1;
+    }
+    80% {
+        @include prefixer(transform, perspective(400px) rotate3d(0, 1, 0, -5deg), "webkit");
+    }
+    to {
+        @include prefixer(transform, perspective(400px), "webkit");
+    }
+}
+
+@keyframes flipInY {
+    from {
+        @include prefixer(transform, perspective(400px) rotate3d(0, 1, 0, 90deg), "webkit");
+        @include prefixer(animation-timing-function, ease-in, "webkit");
+        opacity: 0;
+    }
+    40% {
+        @include prefixer(transform, perspective(400px) rotate3d(0, 1, 0, -20deg), "webkit");
+        @include prefixer(animation-timing-function, ease-in, "webkit");
+    }
+    60% {
+        @include prefixer(transform, perspective(400px) rotate3d(0, 1, 0, 10deg), "webkit");
+        opacity: 1;
+    }
+    80% {
+        @include prefixer(transform, perspective(400px) rotate3d(0, 1, 0, -5deg), "webkit");
+    }
+    to {
+        @include prefixer(transform, perspective(400px), "webkit");
+    }
+}
+
+.flipInY {
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    @include prefixer(animation-name, flipInY, "webkit");
+}
+/**
+ * Animated Effect - 'flipOutX'
+ */
+@-webkit-keyframes flipOutX {
+    from {
+        @include prefixer(transform, perspective(400px), "webkit");
+    }
+    30% {
+        @include prefixer(transform, perspective(400px) rotate3d(1, 0, 0, -20deg), "webkit");
+        opacity: 1;
+    }
+    to {
+        @include prefixer(transform, perspective(400px) rotate3d(1, 0, 0, 90deg), "webkit");
+        opacity: 0;
+    }
+}
+
+@keyframes flipOutX {
+    from {
+        @include prefixer(transform, perspective(400px), "webkit");
+    }
+    30% {
+        @include prefixer(transform, perspective(400px) rotate3d(1, 0, 0, -20deg), "webkit");
+        opacity: 1;
+    }
+    to {
+        @include prefixer(transform, perspective(400px) rotate3d(1, 0, 0, 90deg), "webkit");
+        opacity: 0;
+    }
+}
+
+.flipOutX {
+    @include prefixer(animation-duration, 0.75s, "webkit");
+    @include prefixer(animation-name, flipOutX, "webkit");
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+}
+/**
+ * Animated Effect - 'flipOutY'
+ */
+@-webkit-keyframes flipOutY {
+    from {
+        @include prefixer(transform, perspective(400px), "webkit");
+    }
+    30% {
+        @include prefixer(transform, perspective(400px) rotate3d(0, 1, 0, -15deg), "webkit");
+        opacity: 1;
+    }
+    to {
+        @include prefixer(transform, perspective(400px) rotate3d(0, 1, 0, 90deg), "webkit");
+        opacity: 0;
+    }
+}
+
+@keyframes flipOutY {
+    from {
+        @include prefixer(transform, perspective(400px), "webkit");
+    }
+    30% {
+        @include prefixer(transform, perspective(400px) rotate3d(0, 1, 0, -15deg), "webkit");
+        opacity: 1;
+    }
+    to {
+        @include prefixer(transform, perspective(400px) rotate3d(0, 1, 0, 90deg), "webkit");
+        opacity: 0;
+    }
+}
+
+.flipOutY {
+    @include prefixer(animation-duration, 0.75s, "webkit");
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    @include prefixer(animation-name, flipOutY, "webkit");
+}
+/**
+ * Animated Effect - 'lightSpeedIn'
+ */
+@-webkit-keyframes lightSpeedIn {
+    from {
+        @include prefixer(transform, translate3d(100%, 0, 0) skewX(-30deg), "webkit");
+        opacity: 0;
+    }
+    60% {
+        @include prefixer(transform, skewX(20deg), "webkit");
+        opacity: 1;
+    }
+    80% {
+        @include prefixer(transform, skewX(-5deg), "webkit");
+    }
+    to {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+
+@keyframes lightSpeedIn {
+    from {
+        @include prefixer(transform, translate3d(100%, 0, 0) skewX(-30deg), "webkit");
+        opacity: 0;
+    }
+    60% {
+        @include prefixer(transform, skewX(20deg), "webkit");
+        opacity: 1;
+    }
+    80% {
+        @include prefixer(transform, skewX(-5deg), "webkit");
+    }
+    to {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'lightSpeedOut'
+ */
+@-webkit-keyframes lightSpeedOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        @include prefixer(transform, translate3d(100%, 0, 0) skewX(30deg), "webkit");
+        opacity: 0;
+    }
+}
+
+@keyframes lightSpeedOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        @include prefixer(transform, translate3d(100%, 0, 0) skewX(30deg), "webkit");
+        opacity: 0;
+    }
+}
+/**
+ * Animated Effect - 'rotateIn'
+ */
+@-webkit-keyframes rotateIn {
+    from {
+        @include prefixer(transform-origin, center, "webkit");
+        @include prefixer(transform, rotate3d(0, 0, 1, -200deg), "webkit");
+        opacity: 0;
+    }
+    to {
+        @include prefixer(transform-origin, center, "webkit");
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+        opacity: 1;
+    }
+}
+
+@keyframes rotateIn {
+    from {
+        @include prefixer(transform-origin, center, "webkit");
+        @include prefixer(transform, rotate3d(0, 0, 1, -200deg), "webkit");
+        opacity: 0;
+    }
+    to {
+        @include prefixer(transform-origin, center, "webkit");
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+        opacity: 1;
+    }
+}
+/**
+ * Animated Effect - 'rotateInDownLeft'
+ */
+@-webkit-keyframes rotateInDownLeft {
+    from {
+        @include prefixer(transform-origin, left bottom, "webkit");
+        @include prefixer(transform, rotate3d(0, 0, 1, -45deg), "webkit");
+        opacity: 0;
+    }
+    to {
+        @include prefixer(transform-origin, left bottom, "webkit");
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+        opacity: 1;
+    }
+}
+
+@keyframes rotateInDownLeft {
+    from {
+        @include prefixer(transform-origin, left bottom, "webkit");
+        @include prefixer(transform, rotate3d(0, 0, 1, -45deg), "webkit");
+        opacity: 0;
+    }
+    to {
+        @include prefixer(transform-origin, left bottom, "webkit");
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+        opacity: 1;
+    }
+}
+/**
+ * Animated Effect - 'rotateInDownRight'
+ */
+@-webkit-keyframes rotateInDownRight {
+    from {
+        @include prefixer(transform-origin, right bottom, "webkit");
+        @include prefixer(transform, rotate3d(0, 0, 1, 45deg), "webkit");
+        opacity: 0;
+    }
+    to {
+        @include prefixer(transform-origin, right bottom, "webkit");
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+        opacity: 1;
+    }
+}
+
+@keyframes rotateInDownRight {
+    from {
+        @include prefixer(transform-origin, right bottom, "webkit");
+        @include prefixer(transform, rotate3d(0, 0, 1, 45deg), "webkit");
+        opacity: 0;
+    }
+    to {
+        @include prefixer(transform-origin, right bottom, "webkit");
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+        opacity: 1;
+    }
+}
+/**
+ * Animated Effect - 'rotateInUpLeft'
+ */
+@-webkit-keyframes rotateInUpLeft {
+    from {
+        @include prefixer(transform-origin, left bottom, "webkit");
+        @include prefixer(transform, rotate3d(0, 0, 1, 45deg), "webkit");
+        opacity: 0;
+    }
+    to {
+        @include prefixer(transform-origin, left bottom, "webkit");
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+        opacity: 1;
+    }
+}
+
+@keyframes rotateInUpLeft {
+    from {
+        @include prefixer(transform-origin, left bottom, "webkit");
+        @include prefixer(transform, rotate3d(0, 0, 1, 45deg), "webkit");
+        opacity: 0;
+    }
+    to {
+        @include prefixer(transform-origin, left bottom, "webkit");
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+        opacity: 1;
+    }
+}
+/**
+ * Animated Effect - 'rotateInUpRight'
+ */
+@-webkit-keyframes rotateInUpRight {
+    from {
+        @include prefixer(transform-origin, right bottom, "webkit");
+        @include prefixer(transform, rotate3d(0, 0, 1, -90deg), "webkit");
+        opacity: 0;
+    }
+    to {
+        @include prefixer(transform-origin, right bottom, "webkit");
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+        opacity: 1;
+    }
+}
+
+@keyframes rotateInUpRight {
+    from {
+        @include prefixer(transform-origin, right bottom, "webkit");
+        @include prefixer(transform, rotate3d(0, 0, 1, -90deg), "webkit");
+        opacity: 0;
+    }
+    to {
+        @include prefixer(transform-origin, right bottom, "webkit");
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+        opacity: 1;
+    }
+}
+/**
+ * Animated Effect - 'rotateOut'
+ */
+@-webkit-keyframes rotateOut {
+    from {
+        @include prefixer(transform-origin, center, "webkit");
+        opacity: 1;
+    }
+    to {
+        @include prefixer(transform-origin, center, "webkit");
+        @include prefixer(transform, rotate3d(0, 0, 1, 200deg), "webkit");
+        opacity: 0;
+    }
+}
+
+@keyframes rotateOut {
+    from {
+        @include prefixer(transform-origin, center, "webkit");
+        opacity: 1;
+    }
+    to {
+        @include prefixer(transform-origin, center, "webkit");
+        @include prefixer(transform, rotate3d(0, 0, 1, 200deg), "webkit");
+        opacity: 0;
+    }
+}
+/**
+ * Animated Effect - 'rotateOutDownLeft'
+ */
+@-webkit-keyframes rotateOutDownLeft {
+    from {
+        @include prefixer(transform-origin, left bottom, "webkit");
+        opacity: 1;
+    }
+    to {
+        @include prefixer(transform-origin, left bottom, "webkit");
+        @include prefixer(transform, rotate3d(0, 0, 1, 45deg), "webkit");
+        opacity: 0;
+    }
+}
+
+@keyframes rotateOutDownLeft {
+    from {
+        @include prefixer(transform-origin, left bottom, "webkit");
+        opacity: 1;
+    }
+    to {
+        @include prefixer(transform-origin, left bottom, "webkit");
+        @include prefixer(transform, rotate3d(0, 0, 1, 45deg), "webkit");
+        opacity: 0;
+    }
+}
+/**
+ * Animated Effect - 'rotateOutDownRight'
+ */
+@-webkit-keyframes rotateOutDownRight {
+    from {
+        @include prefixer(transform-origin, right bottom, "webkit");
+        opacity: 1;
+    }
+    to {
+        @include prefixer(transform-origin, right bottom, "webkit");
+        @include prefixer(transform, rotate3d(0, 0, 1, -45deg), "webkit");
+        opacity: 0;
+    }
+}
+
+@keyframes rotateOutDownRight {
+    from {
+        @include prefixer(transform-origin, right bottom, "webkit");
+        opacity: 1;
+    }
+    to {
+        @include prefixer(transform-origin, right bottom, "webkit");
+        @include prefixer(transform, rotate3d(0, 0, 1, -45deg), "webkit");
+        opacity: 0;
+    }
+}
+/**
+ * Animated Effect - 'rotateOutUpLeft'
+ */
+@-webkit-keyframes rotateOutUpLeft {
+    from {
+        @include prefixer(transform-origin, left bottom, "webkit");
+        opacity: 1;
+    }
+    to {
+        @include prefixer(transform-origin, left bottom, "webkit");
+        @include prefixer(transform, rotate3d(0, 0, 1, -45deg), "webkit");
+        opacity: 0;
+    }
+}
+
+@keyframes rotateOutUpLeft {
+    from {
+        @include prefixer(transform-origin, left bottom, "webkit");
+        opacity: 1;
+    }
+    to {
+        @include prefixer(transform-origin, left bottom, "webkit");
+        @include prefixer(transform, rotate3d(0, 0, 1, -45deg), "webkit");
+        opacity: 0;
+    }
+}
+/**
+ * Animated Effect - 'rotateOutUpRight'
+ */
+@-webkit-keyframes rotateOutUpRight {
+    from {
+        @include prefixer(transform-origin, right bottom, "webkit");
+        opacity: 1;
+    }
+    to {
+        @include prefixer(transform-origin, right bottom, "webkit");
+        @include prefixer(transform, rotate3d(0, 0, 1, 90deg), "webkit");
+        opacity: 0;
+    }
+}
+
+@keyframes rotateOutUpRight {
+    from {
+        @include prefixer(transform-origin, right bottom, "webkit");
+        opacity: 1;
+    }
+    to {
+        @include prefixer(transform-origin, right bottom, "webkit");
+        @include prefixer(transform, rotate3d(0, 0, 1, 90deg), "webkit");
+        opacity: 0;
+    }
+}
+/**
+ * Animated Effect - 'hinge'
+ */
+@-webkit-keyframes hinge {
+    0% {
+        @include prefixer(transform-origin, top left, "webkit");
+        @include prefixer(animation-timing-function, ease-in-out, "webkit");
+    }
+    20%, 60% {
+        @include prefixer(transform, rotate3d(0, 0, 1, 80deg), "webkit");
+        @include prefixer(transform-origin, top left, "webkit");
+        @include prefixer(animation-timing-function, ease-in-out, "webkit");
+    }
+    40%, 80% {
+        @include prefixer(transform, rotate3d(0, 0, 1, 60deg), "webkit");
+        @include prefixer(transform-origin, top left, "webkit");
+        @include prefixer(animation-timing-function, ease-in-out, "webkit");
+        opacity: 1;
+    }
+    to {
+        @include prefixer(transform, translate3d(0, 700px, 0), "webkit");
+        opacity: 0;
+    }
+}
+
+@keyframes hinge {
+    0% {
+        @include prefixer(transform-origin, top left, "webkit");
+        @include prefixer(animation-timing-function, ease-in-out, "webkit");
+    }
+    20%, 60% {
+        @include prefixer(transform, rotate3d(0, 0, 1, 80deg), "webkit");
+        @include prefixer(transform-origin, top left, "webkit");
+        @include prefixer(animation-timing-function, ease-in-out, "webkit");
+    }
+    40%, 80% {
+        @include prefixer(transform, rotate3d(0, 0, 1, 60deg), "webkit");
+        @include prefixer(transform-origin, top left, "webkit");
+        @include prefixer(animation-timing-function, ease-in-out, "webkit");
+        opacity: 1;
+    }
+    to {
+        @include prefixer(transform, translate3d(0, 700px, 0), "webkit");
+        opacity: 0;
+    }
+}
+
+.hinge {
+    @include prefixer(animation-duration, 2s, "webkit");
+    @include prefixer(animation-name, hinge, "webkit");
+}
+/**
+ * Animated Effect - 'jackInTheBox'
+ */
+@-webkit-keyframes jackInTheBox {
+    from {
+        opacity: 0;
+        @include prefixer(transform, scale(0.1) rotate(30deg), "webkit");
+        @include prefixer(transform-origin, center bottom, "webkit");
+    }
+    50% {
+        @include prefixer(transform, rotate(-10deg), "webkit");
+    }
+    70% {
+        @include prefixer(transform, rotate(3deg), "webkit");
+    }
+    to {
+        opacity: 1;
+        @include prefixer(transform, scale(1), "webkit");
+    }
+}
+
+@keyframes jackInTheBox {
+    from {
+        opacity: 0;
+        @include prefixer(transform, scale(0.1) rotate(30deg), "webkit");
+        @include prefixer(transform-origin, center bottom, "webkit");
+    }
+    50% {
+        @include prefixer(transform, rotate(-10deg), "webkit");
+    }
+    70% {
+        @include prefixer(transform, rotate(3deg), "webkit");
+    }
+    to {
+        opacity: 1;
+        @include prefixer(transform, scale(1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'rollIn'
+ */
+@-webkit-keyframes rollIn {
+    from {
+        opacity: 0;
+        @include prefixer(transform, translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg), "webkit");
+    }
+    to {
+        opacity: 1;
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+
+@keyframes rollIn {
+    from {
+        opacity: 0;
+        @include prefixer(transform, translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg), "webkit");
+    }
+    to {
+        opacity: 1;
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'rollOut'
+ */
+@-webkit-keyframes rollOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg), "webkit");
+    }
+}
+
+@keyframes rollOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'zoomIn'
+ */
+@-webkit-keyframes zoomIn {
+    from {
+        opacity: 0;
+        @include prefixer(transform, scale3d(0.3, 0.3, 0.3), "webkit");
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        @include prefixer(transform, scale3d(0.3, 0.3, 0.3), "webkit");
+    }
+    50% {
+        opacity: 1;
+    }
+}
+/**
+ * Animated Effect - 'zoomInDown'
+ */
+@-webkit-keyframes zoomInDown {
+    from {
+        opacity: 0;
+        @include prefixer(transform, scale3d(0.1, 0.1, 0.1) translate3d(0, -1000px, 0), "webkit");
+        @include prefixer(animation-timing-function, cubic-bezier(0.55, 0.055, 0.675, 0.19), "webkit");
+    }
+    60% {
+        opacity: 1;
+        @include prefixer(transform, scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0), "webkit");
+        @include prefixer(animation-timing-function, cubic-bezier(0.175, 0.885, 0.32, 1), "webkit");
+    }
+}
+
+@keyframes zoomInDown {
+    from {
+        opacity: 0;
+        @include prefixer(transform, scale3d(0.1, 0.1, 0.1) translate3d(0, -1000px, 0), "webkit");
+        @include prefixer(animation-timing-function, cubic-bezier(0.55, 0.055, 0.675, 0.19), "webkit");
+    }
+    60% {
+        opacity: 1;
+        @include prefixer(transform, scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0), "webkit");
+        @include prefixer(animation-timing-function, cubic-bezier(0.175, 0.885, 0.32, 1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'zoomInLeft'
+ */
+@-webkit-keyframes zoomInLeft {
+    from {
+        opacity: 0;
+        @include prefixer(transform, scale3d(0.1, 0.1, 0.1) translate3d(-1000px, 0, 0), "webkit");
+        @include prefixer(animation-timing-function, cubic-bezier(0.55, 0.055, 0.675, 0.19), "webkit");
+    }
+    60% {
+        opacity: 1;
+        @include prefixer(transform, scale3d(0.475, 0.475, 0.475) translate3d(10px, 0, 0), "webkit");
+        @include prefixer(animation-timing-function, cubic-bezier(0.175, 0.885, 0.32, 1), "webkit");
+    }
+}
+
+@keyframes zoomInLeft {
+    from {
+        opacity: 0;
+        @include prefixer(transform, scale3d(0.1, 0.1, 0.1) translate3d(-1000px, 0, 0), "webkit");
+        @include prefixer(animation-timing-function, cubic-bezier(0.55, 0.055, 0.675, 0.19), "webkit");
+    }
+    60% {
+        opacity: 1;
+        @include prefixer(transform, scale3d(0.475, 0.475, 0.475) translate3d(10px, 0, 0), "webkit");
+        @include prefixer(animation-timing-function, cubic-bezier(0.175, 0.885, 0.32, 1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'zoomInRight'
+ */
+@-webkit-keyframes zoomInRight {
+    from {
+        opacity: 0;
+        @include prefixer(transform, scale3d(0.1, 0.1, 0.1) translate3d(1000px, 0, 0), "webkit");
+        @include prefixer(animation-timing-function, cubic-bezier(0.55, 0.055, 0.675, 0.19), "webkit");
+    }
+    60% {
+        opacity: 1;
+        @include prefixer(transform, scale3d(0.475, 0.475, 0.475) translate3d(-10px, 0, 0), "webkit");
+        @include prefixer(animation-timing-function, cubic-bezier(0.175, 0.885, 0.32, 1), "webkit");
+    }
+}
+
+@keyframes zoomInRight {
+    from {
+        opacity: 0;
+        @include prefixer(transform, scale3d(0.1, 0.1, 0.1) translate3d(1000px, 0, 0), "webkit");
+        @include prefixer(animation-timing-function, cubic-bezier(0.55, 0.055, 0.675, 0.19), "webkit");
+    }
+    60% {
+        opacity: 1;
+        @include prefixer(transform, scale3d(0.475, 0.475, 0.475) translate3d(-10px, 0, 0), "webkit");
+        @include prefixer(animation-timing-function, cubic-bezier(0.175, 0.885, 0.32, 1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'zoomInUp'
+ */
+@-webkit-keyframes zoomInUp {
+    from {
+        opacity: 0;
+        @include prefixer(transform, scale3d(0.1, 0.1, 0.1) translate3d(0, 1000px, 0), "webkit");
+        @include prefixer(animation-timing-function, cubic-bezier(0.55, 0.055, 0.675, 0.19), "webkit");
+    }
+    60% {
+        opacity: 1;
+        @include prefixer(transform, scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0), "webkit");
+        @include prefixer(animation-timing-function, cubic-bezier(0.175, 0.885, 0.32, 1), "webkit");
+    }
+}
+
+@keyframes zoomInUp {
+    from {
+        opacity: 0;
+        @include prefixer(transform, scale3d(0.1, 0.1, 0.1) translate3d(0, 1000px, 0), "webkit");
+        @include prefixer(animation-timing-function, cubic-bezier(0.55, 0.055, 0.675, 0.19), "webkit");
+    }
+    60% {
+        opacity: 1;
+        @include prefixer(transform, scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0), "webkit");
+        @include prefixer(animation-timing-function, cubic-bezier(0.175, 0.885, 0.32, 1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'zoomOut'
+ */
+@-webkit-keyframes zoomOut {
+    from {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+        @include prefixer(transform, scale3d(0.3, 0.3, 0.3), "webkit");
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes zoomOut {
+    from {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+        @include prefixer(transform, scale3d(0.3, 0.3, 0.3), "webkit");
+    }
+    to {
+        opacity: 0;
+    }
+}
+/**
+ * Animated Effect - 'zoomOutDown'
+ */
+@-webkit-keyframes zoomOutDown {
+    40% {
+        opacity: 1;
+        @include prefixer(transform, scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0), "webkit");
+        @include prefixer(animation-timing-function, cubic-bezier(0.55, 0.055, 0.675, 0.19), "webkit");
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, scale3d(0.1, 0.1, 0.1) translate3d(0, 2000px, 0), "webkit");
+        @include prefixer(transform-origin, center bottom, "webkit");
+        @include prefixer(animation-timing-function, cubic-bezier(0.175, 0.885, 0.32, 1), "webkit");
+    }
+}
+
+@keyframes zoomOutDown {
+    40% {
+        opacity: 1;
+        @include prefixer(transform, scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0), "webkit");
+        @include prefixer(animation-timing-function, cubic-bezier(0.55, 0.055, 0.675, 0.19), "webkit");
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, scale3d(0.1, 0.1, 0.1) translate3d(0, 2000px, 0), "webkit");
+        @include prefixer(transform-origin, center bottom, "webkit");
+        @include prefixer(animation-timing-function, cubic-bezier(0.175, 0.885, 0.32, 1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'zoomOutLeft'
+ */
+@-webkit-keyframes zoomOutLeft {
+    40% {
+        opacity: 1;
+        @include prefixer(transform, scale3d(0.475, 0.475, 0.475) translate3d(42px, 0, 0), "webkit");
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, scale(0.1) translate3d(-2000px, 0, 0), "webkit");
+        @include prefixer(transform-origin, left center, "webkit");
+    }
+}
+
+@keyframes zoomOutLeft {
+    40% {
+        opacity: 1;
+        @include prefixer(transform, scale3d(0.475, 0.475, 0.475) translate3d(42px, 0, 0), "webkit");
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, scale(0.1) translate3d(-2000px, 0, 0), "webkit");
+        @include prefixer(transform-origin, left center, "webkit");
+    }
+}
+/**
+ * Animated Effect - 'zoomOutRight'
+ */
+@-webkit-keyframes zoomOutRight {
+    40% {
+        opacity: 1;
+        @include prefixer(transform, scale3d(0.475, 0.475, 0.475) translate3d(-42px, 0, 0), "webkit");
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, scale(0.1) translate3d(2000px, 0, 0), "webkit");
+        @include prefixer(transform-origin, right center, "webkit");
+    }
+}
+
+@keyframes zoomOutRight {
+    40% {
+        opacity: 1;
+        @include prefixer(transform, scale3d(0.475, 0.475, 0.475) translate3d(-42px, 0, 0), "webkit");
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, scale(0.1) translate3d(2000px, 0, 0), "webkit");
+        @include prefixer(transform-origin, right center, "webkit");
+    }
+}
+/**
+ * Animated Effect - 'zoomOutUp'
+ */
+@-webkit-keyframes zoomOutUp {
+    40% {
+        opacity: 1;
+        @include prefixer(transform, scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0), "webkit");
+        @include prefixer(animation-timing-function, cubic-bezier(0.55, 0.055, 0.675, 0.19), "webkit");
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, scale3d(0.1, 0.1, 0.1) translate3d(0, -2000px, 0), "webkit");
+        @include prefixer(transform-origin, center bottom, "webkit");
+        @include prefixer(animation-timing-function, cubic-bezier(0.175, 0.885, 0.32, 1), "webkit");
+    }
+}
+
+@keyframes zoomOutUp {
+    40% {
+        opacity: 1;
+        @include prefixer(transform, scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0), "webkit");
+        @include prefixer(animation-timing-function, cubic-bezier(0.55, 0.055, 0.675, 0.19), "webkit");
+    }
+    to {
+        opacity: 0;
+        @include prefixer(transform, scale3d(0.1, 0.1, 0.1) translate3d(0, -2000px, 0), "webkit");
+        @include prefixer(transform-origin, center bottom, "webkit");
+        @include prefixer(animation-timing-function, cubic-bezier(0.175, 0.885, 0.32, 1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'slideInDown'
+ */
+@-webkit-keyframes slideInDown {
+    from {
+        @include prefixer(transform, translate3d(0, -100%, 0), "webkit");
+        visibility: visible;
+    }
+    to {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        @include prefixer(transform, translate3d(0, -100%, 0), "webkit");
+        visibility: visible;
+    }
+    to {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'slideInLeft'
+ */
+@-webkit-keyframes slideInLeft {
+    from {
+        @include prefixer(transform, translate3d(-100%, 0, 0), "webkit");
+        visibility: visible;
+    }
+    to {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        @include prefixer(transform, translate3d(-100%, 0, 0), "webkit");
+        visibility: visible;
+    }
+    to {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'slideInRight'
+ */
+@-webkit-keyframes slideInRight {
+    from {
+        @include prefixer(transform, translate3d(100%, 0, 0), "webkit");
+        visibility: visible;
+    }
+    to {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        @include prefixer(transform, translate3d(100%, 0, 0), "webkit");
+        visibility: visible;
+    }
+    to {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'slideInUp'
+ */
+@-webkit-keyframes slideInUp {
+    from {
+        @include prefixer(transform, translate3d(0, 100%, 0), "webkit");
+        visibility: visible;
+    }
+    to {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        @include prefixer(transform, translate3d(0, 100%, 0), "webkit");
+        visibility: visible;
+    }
+    to {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'slideOutDown'
+ */
+@-webkit-keyframes slideOutDown {
+    from {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+    to {
+        visibility: hidden;
+        @include prefixer(transform, translate3d(0, 100%, 0), "webkit");
+    }
+}
+
+@keyframes slideOutDown {
+    from {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+    to {
+        visibility: hidden;
+        @include prefixer(transform, translate3d(0, 100%, 0), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'slideOutLeft'
+ */
+@-webkit-keyframes slideOutLeft {
+    from {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+    to {
+        visibility: hidden;
+        @include prefixer(transform, translate3d(-100%, 0, 0), "webkit");
+    }
+}
+
+@keyframes slideOutLeft {
+    from {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+    to {
+        visibility: hidden;
+        @include prefixer(transform, translate3d(-100%, 0, 0), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'slideOutRight'
+ */
+@-webkit-keyframes slideOutRight {
+    from {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+    to {
+        visibility: hidden;
+        @include prefixer(transform, translate3d(100%, 0, 0), "webkit");
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+    to {
+        visibility: hidden;
+        @include prefixer(transform, translate3d(100%, 0, 0), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'slideOutUp'
+ */
+@-webkit-keyframes slideOutUp {
+    from {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+    to {
+        visibility: hidden;
+        @include prefixer(transform, translate3d(0, -100%, 0), "webkit");
+    }
+}
+/**
+ * Animated Effect - 'SlideOutUp'
+ */
+@keyframes slideOutUp {
+    from {
+        @include prefixer(transform, grabs($atransformations, 1), "webkit");
+    }
+    to {
+        visibility: hidden;
+        @include prefixer(transform, translate3d(0, -100%, 0), "webkit");
+    }
+}
+/* Back entrances */
+@-webkit-keyframes backInDown {
+    0% {
+        @include prefixer(transform, translateY(-1200px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+    80% {
+        @include prefixer(transform, translateY(0px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+    100% {
+        @include prefixer(transform, scale(1), "webkit");
+        opacity: 1;
+    }
+}
+
+@keyframes backInDown {
+    0% {
+        @include prefixer(transform, translateY(-1200px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+    80% {
+        @include prefixer(transform, translateY(0px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+    100% {
+        @include prefixer(transform, scale(1), "webkit");
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes backInLeft {
+    0% {
+        @include prefixer(transform, translateX(-2000px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+    80% {
+        @include prefixer(transform, translateX(0px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+    100% {
+        @include prefixer(transform, scale(1), "webkit");
+        opacity: 1;
+    }
+}
+
+@keyframes backInLeft {
+    0% {
+        @include prefixer(transform, translateX(-2000px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+    80% {
+        @include prefixer(transform, translateX(0px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+    100% {
+        @include prefixer(transform, scale(1), "webkit");
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes backInRight {
+    0% {
+        @include prefixer(transform, translateX(2000px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+    80% {
+        @include prefixer(transform, translateX(0px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+    100% {
+        @include prefixer(transform, scale(1), "webkit");
+        opacity: 1;
+    }
+}
+
+@keyframes backInRight {
+    0% {
+        @include prefixer(transform, translateX(2000px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+    80% {
+        @include prefixer(transform, translateX(0px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+    100% {
+        @include prefixer(transform, scale(1), "webkit");
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes backInUp {
+    0% {
+        @include prefixer(transform, translateY(1200px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+    80% {
+        @include prefixer(transform, translateY(0px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+    100% {
+        @include prefixer(transform, scale(1), "webkit");
+        opacity: 1;
+    }
+}
+
+@keyframes backInUp {
+    0% {
+        @include prefixer(transform, translateY(1200px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+    80% {
+        @include prefixer(transform, translateY(0px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+    100% {
+        @include prefixer(transform, scale(1), "webkit");
+        opacity: 1;
+    }
+}
+/* Back exits */
+@-webkit-keyframes backOutDown {
+    0% {
+        @include prefixer(transform, scale(1), "webkit");
+        opacity: 1;
+    }
+    20% {
+        @include prefixer(transform, translateY(0px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+    100% {
+        @include prefixer(transform, translateY(700px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+}
+
+@keyframes backOutDown {
+    0% {
+        @include prefixer(transform, scale(1), "webkit");
+        opacity: 1;
+    }
+    20% {
+        @include prefixer(transform, translateY(0px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+    100% {
+        @include prefixer(transform, translateY(700px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+}
+
+@-webkit-keyframes backOutLeft {
+    0% {
+        @include prefixer(transform, scale(1), "webkit");
+        opacity: 1;
+    }
+    20% {
+        @include prefixer(transform, translateX(0px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+    100% {
+        @include prefixer(transform, translateX(-2000px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+}
+
+@keyframes backOutLeft {
+    0% {
+        @include prefixer(transform, scale(1), "webkit");
+        opacity: 1;
+    }
+    20% {
+        @include prefixer(transform, translateX(0px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+    100% {
+        @include prefixer(transform, translateX(-2000px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+}
+
+@-webkit-keyframes backOutRight {
+    0% {
+        @include prefixer(transform, scale(1), "webkit");
+        opacity: 1;
+    }
+    20% {
+        @include prefixer(transform, translateX(0px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+    100% {
+        @include prefixer(transform, translateX(2000px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+}
+
+@keyframes backOutRight {
+    0% {
+        @include prefixer(transform, scale(1), "webkit");
+        opacity: 1;
+    }
+    20% {
+        @include prefixer(transform, translateX(0px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+    100% {
+        @include prefixer(transform, translateX(2000px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+}
+
+@-webkit-keyframes backOutUp {
+    0% {
+        @include prefixer(transform, scale(1), "webkit");
+        opacity: 1;
+    }
+    20% {
+        @include prefixer(transform, translateY(0px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+    100% {
+        @include prefixer(transform, translateY(-700px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+}
+
+@keyframes backOutUp {
+    0% {
+        @include prefixer(transform, scale(1), "webkit");
+        opacity: 1;
+    }
+    20% {
+        @include prefixer(transform, translateY(0px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+    100% {
+        @include prefixer(transform, translateY(-700px) scale(0.7), "webkit");
+        opacity: 0.7;
+    }
+}
+
+.bounce {
+    @include prefixer(animation-name, bounce);
+}
+
+.flash {
+    @include prefixer(animation-name, flash);
+}
+
+.pulse {
+    @include prefixer(animation-name, pulse);
+}
+
+.rubberBand {
+    @include prefixer(animation-name, rubberBand);
+}
+
+.shake {
+    @include prefixer(animation-name, shake);
+}
+
+.tada {
+    @include prefixer(animation-name, tada);
+}
+
+.wobble {
+    @include prefixer(animation-name, wobble);
+}
+
+.jello {
+    @include prefixer(animation-name, jello);
+}
+
+.heartBeat {
+    @include prefixer(animation-name, heartBeat);
+}
+
+.bounceInDown {
+    @include prefixer(animation-name, bounceInDown);
+}
+
+.bounceInLeft {
+    @include prefixer(animation-name, bounceInLeft);
+}
+
+.bounceInRight {
+    @include prefixer(animation-name, bounceInRight);
+}
+
+.bounceInUp {
+    @include prefixer(animation-name, bounceInUp);
+}
+
+.bounceOutDown {
+    @include prefixer(animation-name, bounceOutDown);
+}
+
+.bounceOutLeft {
+    @include prefixer(animation-name, bounceOutLeft);
+}
+
+.bounceOutRight {
+    @include prefixer(animation-name, bounceOutRight);
+}
+
+.bounceOutUp {
+    @include prefixer(animation-name, bounceOutUp);
+}
+
+.fadeIn {
+    @include prefixer(animation-name, fadeIn);
+}
+
+.fadeInDown {
+    @include prefixer(animation-name, fadeInDown);
+}
+
+.fadeInDownBig {
+    @include prefixer(animation-name, fadeInDownBig);
+}
+
+.fadeInLeft {
+    @include prefixer(animation-name, fadeInLeft);
+}
+
+.fadeInLeftBig {
+    @include prefixer(animation-name, fadeInLeftBig);
+}
+
+.fadeInRight {
+    @include prefixer(animation-name, fadeInRight);
+}
+
+.fadeInRightBig {
+    @include prefixer(animation-name, fadeInRightBig);
+}
+
+.fadeInUp {
+    @include prefixer(animation-name, fadeInUp);
+}
+
+.fadeInUpBig {
+    @include prefixer(animation-name, fadeInUpBig);
+}
+
+.fadeOut {
+    @include prefixer(animation-name, fadeOut);
+}
+
+.fadeOutDown {
+    @include prefixer(animation-name, fadeOutDown);
+}
+
+.fadeOutDownBig {
+    @include prefixer(animation-name, fadeOutDownBig);
+}
+
+.fadeOutLeft {
+    @include prefixer(animation-name, fadeOutLeft);
+}
+
+.fadeOutLeftBig {
+    @include prefixer(animation-name, fadeOutLeftBig);
+}
+
+.fadeOutRight {
+    @include prefixer(animation-name, fadeOutRight);
+}
+
+.fadeOutRightBig {
+    @include prefixer(animation-name, fadeOutRightBig);
+}
+
+.fadeOutUp {
+    @include prefixer(animation-name, fadeOutUp);
+}
+
+.fadeOutUpBig {
+    @include prefixer(animation-name, fadeOutUpBig);
+}
+
+.lightSpeedIn {
+    @include prefixer(animation-name, lightSpeedIn);
+}
+
+.lightSpeedOut {
+    @include prefixer(animation-name, lightSpeedOut);
+}
+
+.rotateIn {
+    @include prefixer(animation-name, rotateIn);
+}
+
+.rotateInDownLeft {
+    @include prefixer(animation-name, rotateInDownLeft);
+}
+
+.rotateInDownRight {
+    @include prefixer(animation-name, rotateInDownRight);
+}
+
+.rotateInUpLeft {
+    @include prefixer(animation-name, rotateInUpLeft);
+}
+
+.rotateInUpRight {
+    @include prefixer(animation-name, rotateInUpRight);
+}
+
+.rotateOut {
+    @include prefixer(animation-name, rotateOut);
+}
+
+.rotateOutDownLeft {
+    @include prefixer(animation-name, rotateOutDownLeft);
+}
+
+.rotateOutDownRight {
+    @include prefixer(animation-name, rotateOutDownRight);
+}
+
+.rotateOutUpLeft {
+    @include prefixer(animation-name, rotateOutUpLeft);
+}
+
+.rotateOutUpRight {
+    @include prefixer(animation-name, rotateOutUpRight);
+}
+
+.jackInTheBox {
+    @include prefixer(animation-name, jackInTheBox);
+}
+
+.rollIn {
+    @include prefixer(animation-name, rollIn);
+}
+
+.rollOut {
+    @include prefixer(animation-name, rollOut);
+}
+
+.zoomIn {
+    @include prefixer(animation-name, zoomIn);
+}
+
+.zoomInDown {
+    @include prefixer(animation-name, zoomInDown);
+}
+
+.zoomInLeft {
+    @include prefixer(animation-name, zoomInLeft);
+}
+
+.zoomInRight {
+    @include prefixer(animation-name, zoomInRight);
+}
+
+.zoomInUp {
+    @include prefixer(animation-name, zoomInUp);
+}
+
+.zoomOut {
+    @include prefixer(animation-name, zoomOut);
+}
+
+.zoomOutDown {
+    @include prefixer(animation-name, zoomOutDown);
+}
+
+.zoomOutLeft {
+    @include prefixer(animation-name, zoomOutLeft);
+}
+
+.zoomOutRight {
+    @include prefixer(animation-name, zoomOutRight);
+}
+
+.zoomOutUp {
+    @include prefixer(animation-name, zoomOutUp);
+}
+
+.slideInDown {
+    @include prefixer(animation-name, slideInDown);
+}
+
+.slideInLeft {
+    @include prefixer(animation-name, slideInLeft);
+}
+
+.slideInRight {
+    @include prefixer(animation-name, slideInRight);
+}
+
+.slideInUp {
+    @include prefixer(animation-name, slideInUp);
+}
+
+.slideOutDown {
+    @include prefixer(animation-name, slideOutDown);
+}
+
+.slideOutLeft {
+    @include prefixer(animation-name, slideOutLeft);
+}
+
+.slideOutRight {
+    @include prefixer(animation-name, slideOutRight);
+}
+
+.slideOutUp {
+    @include prefixer(animation-name, slideOutUp);
+}
+
+.backInDown {
+    @include prefixer(animation-name, backInDown);
+}
+
+.backInLeft {
+    @include prefixer(animation-name, backInLeft);
+}
+
+.backInRight {
+    @include prefixer(animation-name, backInRight);
+}
+
+.backInUp {
+    @include prefixer(animation-name, backInUp);
+}
+
+.backOutDown {
+    @include prefixer(animation-name, backOutDown);
+}
+
+.backOutLeft {
+    @include prefixer(animation-name, backOutLeft);
+}
+
+.backOutRight {
+    @include prefixer(animation-name, backOutRight);
+}
+
+.backOutUp {
+    @include prefixer(animation-name, backOutUp);
+}
+
+
+/**
+ * Custom App/Theme Animation
+ */
+.theanimation {
+    @include prefixer(transition, opacity 0.2s cubic-bezier(0.4, 0, 1, 1));
+    @include prefixer(transform, 0.2s cubic-bezier(0.4, 0, 1, 1), "webkit");
+    @include prefixer(transform, translate3d(0, 5vh, 0), "webkit");
+    &.active {
+        @include prefixer(transition, opacity 0.5s cubic-bezier(0, 0, 0.2, 1));
+        @include prefixer(transform, 0.5s cubic-bezier(0, 0, 0.2, 1), "webkit");
+        @include prefixer(transform, translateZ(0), "webkit");
+        opacity: 1;
+    }
+}
+/**
+ * General settings
+ */
+.animated {
+    @include prefixer(animation-duration, 1s);
+    @include prefixer(animation-fill-mode, both);
+    /**
+     * Inactive Animations
+     */
+    &.inactive {
+        visibility: hidden;
+    }
+    /**
+     * Looped Animations
+     */
+    &.infinite, &.loop {
+        @include prefixer(animation-iteration-count, infinite);
+    }
+    /**
+     * Delayed Animation Intervals
+     */
+    &.delay-smallest, .delay-250ms {
+        @include prefixer(animation-delay, 0.25s);
+    }
+    &.delay-smaller, &.delay-500ms {
+        @include prefixer(animation-delay, 0.5s);
+    }
+    &.delay-small, &.delay-750ms {
+        @include prefixer(animation-delay, 0.75s);
+    }
+    &.delay-smallish, &.delay-1s, &.delay-1000ms {
+        @include prefixer(animation-delay, 1s);
+    }
+    &.delay-medium-small, &.delay-1250ms {
+        @include prefixer(animation-delay, 1.25s);
+    }
+    &.delay-medium, &.delay-1500ms {
+        @include prefixer(animation-delay, 1.5s);
+    }
+    &.delay-medium-large, &.delay-1750ms {
+        @include prefixer(animation-delay, 1.75s);
+    }
+    &.delay-largish, &.delay-2s, &.delay-2000ms {
+        @include prefixer(animation-delay, 2s);
+    }
+    &.delay-large, &.delay-2250ms {
+        @include prefixer(animation-delay, 2.25s);
+    }
+    &.delay-larger, &.delay-2500ms {
+        @include prefixer(animation-delay, 2.5s);
+    }
+    &.delay-largest, &.delay-2750ms {
+        @include prefixer(animation-delay, 2.75s);
+    }
+    &.delay-xl, &.delay-3s, &.delay-3000ms {
+        @include prefixer(animation-delay, 3s);
+    }
+    /**
+     * Animation Speed Variance / Animation Duration
+     */
+    &.fastest, &.duration-250ms {
+        @include prefixer(animation-duration, 250ms);
+    }
+    &.faster, &.duration-500ms {
+        @include prefixer(animation-duration, 500ms);
+    }
+    &.fast, &.duration-750ms {
+        @include prefixer(animation-duration, 750ms);
+    }
+    &.fastish, &.duration-1s, &.duration-1000ms {
+        @include prefixer(animation-duration, 1s);
+    }
+    &.slowish, &.duration-1500ms {
+        @include prefixer(animation-duration, 1.5s);
+    }
+    &.slow, &.duration-2s, &.duration-2000ms {
+        @include prefixer(animation-duration, 2s);
+    }
+    &.slower, &.duration-2500ms {
+        @include prefixer(animation-duration, 2.5s);
+    }
+    &.slowest, &.duration-3s, &.duration-3000ms {
+        @include prefixer(animation-duration, 3s);
+    }
+}
+/**
+ * Accessibility Options- Reduced motion settings
+ */
+// @media (prefers-reduced-motion) {
+//     .animated {
+//         -webkit-animation: unset !important;
+//         animation: unset !important;
+//         -webkit-transition: none !important;
+//         transition: none !important;
+//     }
+// }

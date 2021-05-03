@@ -1,0 +1,215 @@
+@charset "UTF-8";
+
+// Default Variables
+
+// Slick icon entity codes outputs the following
+// "\2190" outputs ascii character "←"
+// "\2192" outputs ascii character "→"
+// "\2022" outputs ascii character "•"
+
+$slick-font-path: "../fonts/" !default;
+$slick-font-family: "slick" !default;
+$slick-loader-path: "./" !default;
+$slick-arrow-color: $primary !default;
+$slick-dot-color: black !default;
+$slick-dot-color-active: $slick-dot-color !default;
+$slick-prev-character: "\2190" !default;
+$slick-next-character: "\2192" !default;
+$slick-dot-character: "\2022" !default;
+$slick-dot-size: 6px !default;
+$slick-opacity-default: 0.75 !default;
+$slick-opacity-on-hover: 1 !default;
+$slick-opacity-not-active: 0.25 !default;
+
+@function slick-image-url($url) {
+  @if function-exists(image-url) {
+    @return image-url($url);
+  }
+
+  @else {
+    @return url($slick-loader-path + $url);
+  }
+}
+
+@function slick-font-url($url) {
+  @if function-exists(font-url) {
+    @return font-url($url);
+  }
+
+  @else {
+    @return url($slick-font-path + $url);
+  }
+}
+
+/* Slider */
+
+.slick-list {
+  .slick-loading & {
+    background: #fff slick-image-url("ajax-loader.gif") center center no-repeat;
+  }
+}
+
+/* Icons */
+@if $slick-font-family=="slick" {
+  @font-face {
+    font-family: "slick";
+    src: slick-font-url("slick.eot");
+    src: slick-font-url("slick.eot?#iefix") format("embedded-opentype"), slick-font-url("slick.woff") format("woff"), slick-font-url("slick.ttf") format("truetype"), slick-font-url("slick.svg#slick") format("svg");
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
+/* Arrows */
+
+.slick-prev,
+.slick-next {
+  position: absolute;
+  display: block;
+  z-index: 2;
+  width: 40px;
+  height: 80px;
+  line-height: 0px;
+  font-size: 0px;
+  cursor: pointer;
+  background: $primary;
+  color: transparent;
+  // top: 50%;
+
+
+  padding: 0;
+  border: none;
+  outline: none;
+
+  top: 0;
+  bottom: 0;
+  margin: auto;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    cursor: pointer;
+    
+
+    &:before {
+     
+    }
+  }
+
+  &.slick-disabled:before {
+    opacity: $slick-opacity-not-active;
+  }
+
+  &:before {
+    font-family: $slick-font-family;
+    font-size: 20px;
+    line-height: 1;
+    color: $slick-arrow-color;
+   
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.slick-prev {
+  left: 20px;
+  @include media-breakpoint-up(md) {
+    left: 40px;
+  }
+
+  &:before {
+    content: "";
+    background: url('../img/slide-arrow-prev.svg');
+    display: block;
+    background-repeat: no-repeat;
+    left: 10px;
+    background-size: 100%;
+    width: 15px;
+    height: 24px;
+    position: relative;
+  }
+}
+
+.slick-next {
+
+  right: 20px;
+  @include media-breakpoint-up(lg) {
+    right: 40px;
+  }
+  
+  &:before {
+    content: "";
+    background: url('../img/slide-arrow-next.svg');
+    
+    display: block;
+    background-repeat: no-repeat;
+
+    left: 10px;
+    background-size: 100%;
+    width: 15px;
+    height: 24px;
+    position: relative;
+  }
+
+  [dir="rtl"] & {
+    left: -25px;
+    right: auto;
+  }
+
+}
+
+/* Dots */
+
+.slick-dotted.slick-slider {
+  margin-bottom: 30px;
+}
+
+.slick-dots {
+  // position: absolute;
+  bottom: 0;
+  list-style: none;
+  display: block;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+
+  li {
+    position: relative;
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    padding: 0;
+    cursor: pointer;
+
+    &.slick-active {
+      button {
+        background-color: $type_color;
+        ;
+      }
+    }
+
+    button {
+      border: solid 1px $type_color;
+      @include prefixer('border-radius', '100%');
+      background: transparent;
+      display: block;
+      height: 10px;
+      width: 10px;
+      outline: none;
+      line-height: 0px;
+      font-size: 0px;
+      color: transparent;
+      padding: 5px;
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        outline: none;
+
+      }
+
+    }
+  }
+}

@@ -3,7 +3,7 @@
  * Aliases/Fallbacks for PHP functions
  *
  * @package WordPress
- * @subpackage Baker Design Theme 1.0
+ * @subpackage BakerDesign
  * @since 2.0
  ****************************************************************/
 

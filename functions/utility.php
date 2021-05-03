@@ -2,7 +2,7 @@
 /**
  * Functions meant to extend core WordPress functionality
  * @package WordPress
- * @subpackage Baker Design Theme 1.0
+ * @subpackage BakerDesign
  * @since 2.0
  ****************************************************************/
 

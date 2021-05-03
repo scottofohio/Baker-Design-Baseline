@@ -41,8 +41,11 @@ module.exports = function(grunt) {
         sass_globbing: {
             your_target: {
                 files: {
+                    'assets/scss/mixins/mixins.scss': 'assets/scss/mixins/_*.scss', 
+                    'assets/scss/base/base.scss': 'assets/scss/base/_*.scss', 
                     'assets/scss/modules/modules.scss': 'assets/scss/modules/_*.scss',
-                    'assets/scss/vendor/vendor.scss': 'assets/scss/vendor/_*.scss'
+                    'assets/scss/modules/vendor.scss': 'assets/scss/vendor/_*.scss'
+                    
                 },
                 options: {
                     useSingleQuotes: true,
@@ -54,6 +57,7 @@ module.exports = function(grunt) {
         sass: {
             dev: {
                 options: {
+                    implementation: require('node-sass'),
                     outputStyle: 'expanded',
                     sourceMap: true
                 },
@@ -63,6 +67,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 options: {
+                    implementation: require('node-sass'),
                     outputStyle: 'compressed',
                     sourceMap: false
                 },
@@ -84,16 +89,6 @@ module.exports = function(grunt) {
             },
             files: ['assets/js/app.js']
         },
-        /* Split the CSS if IE 9 thinks there are too many selectors */
-        csssplit: {
-            dist: {
-                src: ['assets/css/app.css'],
-                dest: 'assets/css/app_ie.css',
-                options: {
-                    suffix: '_'
-                }
-            },
-        },
         /* Watch certain directories/files for changes */
         watch: {
             options: {
@@ -104,7 +99,7 @@ module.exports = function(grunt) {
                 tasks: ['concat', 'jshint']
             },
             sass: {
-                files: ['assets/scss/*.scss', 'assets/scss/**/*.scss', 'components/style-guide/scss/style-guide.scss'],
+                files: ['assets/scss/*.scss', 'assets/scss/**/*.scss'],
                 tasks: ['sass_globbing', 'sass:dev'],
                 options: {
                     outputStyle: 'expanded',
@@ -116,14 +111,12 @@ module.exports = function(grunt) {
     /* Load NPM tasks */
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-sass-globbing');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-csssplit');
     grunt.loadNpmTasks('grunt-sass-globbing');
     /* Register tasks */
-    grunt.registerTask('prod', ['concat', 'uglify', 'sass_globbing', 'sass']);
+    grunt.registerTask('prod', ['concat', 'uglify', 'sass_globbing', 'sass:dist']);
     grunt.registerTask('dev', ['concat', 'jshint', 'sass_globbing', 'sass:dev', 'watch']);
     /* Default task (run with "grunt" command) */
     grunt.registerTask('default', function(arg) {

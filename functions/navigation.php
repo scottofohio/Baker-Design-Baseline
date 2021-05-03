@@ -1,7 +1,7 @@
 <?php
 /***********************************************************************
 
-Baker Design Theme 1.0
+BakerDesign
 All Navigation Settings
 
 /***********************************************************************/
@@ -11,47 +11,27 @@ All Navigation Settings
  *
  * @return str
  */
-if ( ! function_exists( 'primary_navigation' ) ) {
-    function primary_navigation() {
-        wp_nav_menu(array(
-          'theme_location' => 'primary-nav',
-          'depth' => 2,
-          'container' => false,
-          'items_wrap' => '%3$s',
-          'walker' => new wp_bootstrap_navwalker()
-          )
-        );
-    }
-}
-if ( ! function_exists( 'footer_navigation' ) ) {
-    function footer_navigation() {
-        wp_nav_menu(array(
-            'container' => false,
-            'items_wrap' => '%3$s',
-            'theme_location' => 'footer-nav'
-        ));
-    }
-}
-if ( ! function_exists( 'utility_navigation' ) ) {
-    function utility_navigation() {
-        wp_nav_menu(array(
-            'theme_location' => 'utility-nav',
-            'depth' => 1,
-            'container' => false,
-            'items_wrap' => '%3$s',
-            'walker' => new wp_bootstrap_navwalker()
-        ));
-    }
-}
-if ( ! function_exists( 'secondary_footer_nav' ) ) {
-  function secondary_footer_nav() {
-      wp_nav_menu(array(
-          'theme_location' => 'secondary-footer-nav',
+if ( ! function_exists( 'site_menus' ) ) {
+    function site_menus($theme_location) {
+        $nav_params = array(
+          'theme_location' => $theme_location,
           'container' => false,
           'items_wrap' => '%3$s'
-      ));
-  }
+        ); 
+        wp_nav_menu($nav_params);
+    }
 }
+
+/**
+ * Register site nav menus
+ *
+ * @return str
+ */
+register_nav_menus(array(
+  'primary-nav' => 'Primary Navigation',
+  'utility-nav' => 'Utility Navigation',
+  'footer-nav' => 'Footer Navigation'
+));
 
 /**
  * Drop-in numeric pagination for archives, search results, etc.
@@ -96,17 +76,7 @@ function my_post_nav_links() {
     return ( $nav ? sprintf( '<ul class="post-nav-links">%s</ul>', str_replace('/page/', '/', $nav) ) : '' );
 }
 
-/**
- * Register site nav menus
- *
- * @return str
- */
-register_nav_menus(array(
-    'primary-nav' => 'Primary Navigation',
-    'utility-nav' => 'Utility Navigation',
-    'footer-nav' => 'Footer Navigation',
-    'secondary-footer-nav' => 'Secondary Footer'
-));
+
 
 
 
@@ -125,4 +95,65 @@ function breadcrumbs() {
 
     echo '</nav>';
   }
+}
+
+add_action( 'admin_head-nav-menus.php', function() {
+  add_meta_box( 'plugin-slug-menu-metabox', "Menu for Location", 'wpdocs_plugin_slug_render_menu_metabox', 'nav-menus', 'side', 'default', array( /*custom params*/ ) );
+} );
+
+function wpdocs_plugin_slug_render_menu_metabox( $object, $args )
+{
+global $nav_menu_selected_id;
+// Create an array of objects that imitate Post objects
+
+$menu_object = array(
+  (object) array(
+  
+  )
+  );
+$menu_locations = get_posts(array('post_type' => 'locations', 'numberposts' => -1));
+
+$count = 0;
+foreach($menu_locations as $men_loc) {
+  $menu_object[$count]->ID = $men_loc->ID;
+  $menu_object[$count]->object_id = $men_loc->ID;
+  $menu_object[$count]->db_id = $men_loc->ID;
+  $menu_object[$count]->url = get_bloginfo('url') . '/menu/?location-menu=' . $men_loc->post_name;
+  $menu_object[$count]->title = $men_loc->post_title;
+  $menu_object[$count]->type = 'custom';
+  $menu_object[$count]->type_label = $men_loc->post_title;
+  $menu_object[$count]->classes = array();
+  $menu_object[$count]->object = 'custom';
+  $menu_object[$count]->menu_item_parent = '0';
+  $menu_object[$count]->post_parent = '0';
+  $menu_object[$count]->target = '';
+  $menu_object[$count]->attr_title = '';
+  $menu_object[$count]->description = '';
+  $menu_object[$count]->xfn = '';
+  $count++;
+}
+
+
+$db_fields = false;
+// If your links will be hierarchical, adjust the $db_fields array below
+if ( false ) { 
+  $db_fields = array( 'parent' => 'parent', 'id' => 'post_parent' ); 
+}
+
+$walker = new Walker_Nav_Menu_Checklist( $db_fields );
+$removed_args = array( 'action', 'customlink-tab', 'edit-menu-item', 'menu-item', 'page-tab', '_wpnonce', );
+?>
+<div id="plugin-slug-div">
+  <div id="tabs-panel-plugin-slug-all" class="tabs-panel tabs-panel-active">
+  <ul id="plugin-slug-checklist-pop" class="categorychecklist form-no-clear" >
+    <?php echo walk_nav_menu_tree( array_map( 'wp_setup_nav_menu_item', $menu_object ), 0, (object) array( 'walker' => $walker ) ); ?>
+  </ul>
+  <p class="button-controls">
+    <span class="add-to-menu">
+      <input type="submit"<?php wp_nav_menu_disabled_check( $nav_menu_selected_id ); ?> class="button-secondary submit-add-to-menu right" value="<?php esc_attr_e( 'Add to Menu' ); ?>" name="add-plugin-slug-menu-item" id="submit-plugin-slug-div" />
+      <span class="spinner"></span>
+    </span>
+  </p>
+</div>
+<?php
 }

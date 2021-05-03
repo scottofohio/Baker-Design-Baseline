@@ -1,0 +1,80 @@
+//
+// Variables
+//
+
+// Vendor Settings
+$slick-loader-path: '../img/';
+
+// Grid Variables
+$grid-gutter-width: 30px;
+$container-padding-large: 12vw;
+$container-padding: 80px;
+
+$mobile-gutter: 20px;
+
+$container-padding-small : 6vw;
+$grid-columns: 12;
+
+// Grid Breakpoints Array
+$grid-breakpoints: (
+  xxs: 0,
+  xs: 320px,
+  sm: 520px,
+  md_custom: 620px,
+  md: 780px,
+  lg: 1024px,
+  xl: 1440px,
+  xxl: 1680px
+) !default;
+
+  // Color Variables
+  $primary: #090E13;
+  $secondary: #F9E346;
+  $yellow: $secondary;
+  $green: #28733B;
+  $type_color: #000000;
+  $link_color:  $primary;
+  $medium_gray:  #263037;
+  $light_gray: #F9F9FF;
+
+  // Colors Array
+  $theme-colors: (
+    primary:    $primary,
+    secondary:  $secondary,
+    white:      #fff
+  ) !default;
+
+  // Type Variables
+  $header-font: Helvetica, Arial, sans-serif;
+  $header-font-alternate: Helvetica, Arial, sans-serif;
+  $font-family-base: $header-font, Helvetica, Arial, sans-serif;
+  $font-size-small: 1.4rem;
+  $font-size-base: 1.5rem;
+  $font-size-medium: 1.6rem;
+  $font-size-large: 1.8rem;
+  $font-size-x-large: 2rem;
+
+  $h1-font-size: 11rem;
+  $h1-font-size-medium: 8rem;
+  $h1-font-size-small: 4.5rem;
+
+
+  $h2-font-size-accent: 10rem;
+  $h2-font-size-accent-medium: 8rem;
+  $h2-font-size-accent-small: 3.5rem;
+
+  $h2-font-size: 5.5rem;
+  $h2-font-size-small: 3.5rem;
+
+  $h3-font-size: 3rem;
+  $h3-font-size-small: 2.5rem;
+
+  $h4-font-size: 2rem;
+  $h4-font-size-small: 2rem;
+
+  $h5-font-size: 1.15rem;
+  $h5-font-size-small: 1rem;
+
+  $h6-font-size: .9rem;
+  $h6-font-size-small: 0.8rem;
+

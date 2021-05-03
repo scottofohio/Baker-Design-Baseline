@@ -3,7 +3,7 @@
  * Customizations to the WordPress administration area
  *
  * @package WordPress
- * @subpackage Baker Design Theme 1.0
+ * @subpackage BakerDesign
  * @since 2.0
  ****************************************************************/
 
@@ -100,7 +100,7 @@ function add_custom_admin_styles() {
 
 /** Register/add filters & actions */
 add_filter( 'mce_buttons_2', 'my_remove_forecolor_button' );
-add_action('admin_head', 'add_custom_admin_styles');
+// add_action('admin_head', 'add_custom_admin_styles');
 
 /* Only hide if user is developer */
 if ( get_current_user_id() === 1) {

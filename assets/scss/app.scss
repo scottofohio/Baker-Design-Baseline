@@ -2,11 +2,10 @@
    	All Styles Get Imported Here
 /*-------------------------------------------------------*/
 
-/* Vendor Libraries */
-@import url("https://use.typekit.net/lwz2qyj.css");
-@import 'bootstrap/bootstrap';
-
-// Global Styles and Settings 
+@import 'variables';
+@import 'functions';
+@import 'mixins/mixins';
+@import 'base/base';
 @import 'vendor/vendor';
 @import 'modules/modules';
 

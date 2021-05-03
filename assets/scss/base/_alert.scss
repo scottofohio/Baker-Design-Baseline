@@ -1,0 +1,31 @@
+//
+// Base styles
+//
+
+.has-tooltip {
+  position: relative;
+  cursor: pointer;
+  .tooltip {
+    position: absolute;  
+    background: #fff;
+    padding: 15px;
+    width: 180px;
+    font-size: $font-size-small;
+    top: -75px;
+    @include prefixer('box-shadow', '0 4px 14px 0 rgba(5, 28,47, .1)');
+
+    font-weight: 700;
+    z-index: 2;
+    &:before {
+      content: "";
+      display: block;
+      background-color: #fff;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      bottom: -10px;
+      transform: rotate(45deg);
+     
+    }
+  }
+}

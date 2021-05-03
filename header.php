@@ -5,7 +5,7 @@
  * Displays all of the header and navigation
  *
  * @package WordPress
- * @subpackage Baker Design Theme 1.0
+ * @subpackage BakerDesign
  * @since 2.0
  */
 
@@ -22,7 +22,7 @@ global $module;
 <html <?php language_attributes(); ?>>
 <!--<![endif]-->
 <head>
-	<title><?php $p = get_post(); echo $p->post_title; ?> | <?php echo bloginfo( "name"); ?> | <?php echo get_the_excerpt($post->ID); ?></title>
+	<title><?php meta_title(); ?></title>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<!-- force IE out of compatability mode for any version -->
 	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
@@ -35,18 +35,17 @@ global $module;
 </head>
 <body <?php body_class(); ?>>  
 <header role="banner" class="site-header">
-  <nav class="navbar navbar-expand-lg navbar-light bg-white">
-    <a class="navbar-brand" href="<?php bloginfo('url') ?>">
-      <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo.svg" alt="Andrew Gither for Mayor">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="main-navbar-nav">
-      <ul class="navbar-nav">
-        <?php primary_navigation(); ?>
-      </ul>
-    </div>
+  <a href="<?php echo get_bloginfo('url'); ?>" class="site-logo">SITE NAME</a>
+  <button class="hamburger">Menu</button>
+  <nav class="main-nav">
+    <ul>
+      <?php site_menus('primary-nav'); ?>
+    </ul>
+  </nav>
+  <nav class="utility-nav">
+    <ul>
+      <?php site_menus('utility-nav'); ?>
+    </ul>
   </nav>
 </header>
 <main id="maincontent"> <!-- Site container --> 
