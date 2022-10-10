@@ -13,37 +13,31 @@ const clean = (cb) => {
 
 
 const sassCompile = (cb) => {
-    const file = 'assets/sass/app.sass';
-    const result = sass.compile(file, {style: "compressed", sourceMap: true} );    
-    fs.writeFile('assets/css/app.css', result.css, function (err) {
-      if (err) return console.log(err);
-    });
-    console.log(result)
-
-    // fs.writeFile('assets/css/app.css.map', result.map, function (err) {
-    //   if (err) return console.log(err);
-    // });
-
+  const file = 'assets/sass/app.sass';
+  const result = sass.compile(file, { style: "compressed", sourceMap: true });
+  fs.writeFile('assets/css/app.css', result.css, function (err) {
+    if (err) return console.log(err);
+  });
   cb()
 }
 
 
 
 const javascript = () => {
-     return src(['assets/js/custom/*.js'])
-  .pipe(concat('assets/js/app.js'))
-  .pipe(uglify())
-  .pipe(rename({suffix: '.min'}))
-  .pipe(dest('./'));
+  return src(['assets/js/custom/*.js'])
+    .pipe(concat('assets/js/app.js'))
+    .pipe(uglify())
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(dest('./'));
 
 }
 
-task('build', function(cb) {
+task('build', function (cb) {
   // body omitted
   watch([
-    'assets/sass/*.sass', 
-    'assets/sass/*/*.sass', 
-    'assets/js/**/*.js'], 
+    'assets/sass/*.sass',
+    'assets/sass/*/*.sass',
+    'assets/js/**/*.js'],
     series(clean, parallel(javascript, sassCompile)));
-    cb();
+  cb();
 });
