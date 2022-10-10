@@ -1,0 +1,188 @@
+.container
+  margin-bottom: 60px
+  &.grid-module
+    margin-bottom: 10px
+    padding-bottom: 40px
+    padding: 0 $grid-gutter-width
+    font-size: 2.4rem
+
+    .blog-pagination
+      display: grid
+
+      padding: 30px
+      width: 100%
+      grid-template-columns: 1fr 1fr
+      a
+        display: block
+        font-family: Georgia, 'Times New Roman', Times, serif
+
+        align-items: center
+
+        position: relative
+        &.previous
+          padding: 0 0 0 30px
+          justify-self: start
+          svg
+            left: -20px
+
+        &.next
+          grid-column: 2
+          text-align: right
+          justify-self: end
+          padding: 0 30px 0 0
+          span
+            padding: 0 20px 0 0
+        span
+          // flex: 0 0 80%
+          display: block
+
+        svg
+          max-width: 30px
+          position: absolute
+          top: 0
+          bottom: 0
+          margin: auto
+    .section-header
+      padding: 20px 0
+      margin: 0
+      a
+        display: block
+        position: relative
+        svg
+          width: 30px
+          height: 21px
+          position: absolute
+          right: 0
+          top: 0
+          bottom: 0
+          margin: auto
+    &:last-child
+      border: none
+      margin: 0
+.grid-blocks
+  // margin-top: 0px
+  .post
+    border-bottom: solid 1px $primary
+    padding-bottom: 30px
+    margin: 0
+  .grid-block
+    margin-bottom: 30px
+    .gatsby-image-wrapper
+      margin-bottom: 20px
+.one-col, .grid-1-col
+  @include grid-row(1, $grid-gutter-width)
+.two-col, .grid-2-col
+  > *
+    margin-bottom: 30px
+  @include media-breakpoint-up(md)
+    @include grid-row(2, 60px)
+    > *
+      margin-bottom: 0
+      &:nth-child(2n+1)
+        position: relative
+        &:after
+          content: ""
+          top: 0
+          background-color: $primary
+          height: 100%
+          width: 2px
+          position: absolute
+          right: -30px
+.three-col, .grid-3-col
+  @include  media-breakpoint-up(md)
+    @include grid-row(3, 60px)
+  > *
+    border-bottom: 1px solid $primary
+    padding-bottom: 30px
+    margin-bottom: 30px
+    @include  media-breakpoint-up(md)
+      border-bottom: 0
+      padding-bottom: 0
+      margin--bottom: 0
+      &:nth-child(3n+2)
+        position: relative
+        &:before
+          content: ""
+          background-color: $primary
+          height: 100%
+          width: 1px
+          position: absolute
+          left: -30px
+        &:after
+          content: ""
+          top: 0
+          background-color: $primary
+          height: 100%
+          width: 1px
+          position: absolute
+          right: -30px
+.four-col, .grid-4-col
+  > *
+    margin-bottom: 30px
+  @include media-breakpoint-up(md)
+    @include grid-row(2, 30px)
+    > *
+      margin-bottom: 0
+  @include media-breakpoint-up(lg)
+    @include grid-row(4, 60px)
+    > *
+      position: relative
+      &:nth-child(4n+1),
+      &:nth-child(4n+2),
+      &:nth-child(4n+3)
+        &:after
+          content: ""
+          top: 0
+          background-color: $border-color
+          height: 100%
+          width: 1px
+          position: absolute
+          right: -30px
+.form-wrap
+  input[type='submit']
+    display: block
+    margin-top: 20px
+    width: 100%
+    padding: 30px
+  .check-group
+    display: flex
+    flex-wrap: wrap
+    label
+      flex: 0 0 50%
+      padding: 15px 0 0 0
+      input
+        margin-right: 10px
+  h3
+    max-width: 50%
+  .two-col
+    > div
+      > label
+        display: block
+        margin-bottom: 15px
+    @include media-breakpoint-up(lg)
+      margin-top: 60px
+      gap: 100px
+      > *:last-child
+        label
+          font-size: 3rem
+          color: $primary
+          &.small-label
+            font-size: 1.5rem
+            display: block
+          select
+            padding: 20px
+            font-size: 1.5rem
+      > *:nth-child(2n+1):after
+        content: none
+
+.category-nav
+
+  padding: 15px 30px 15px 30px
+  border-bottom: solid 1px $primary
+  @include media-breakpoint-up(lg)
+    display: flex
+    a
+      padding: 0 30px 0 0
+      text-transform: uppercase
+      display: block
+      font-size: 1.4rem

@@ -1,0 +1,39 @@
+// Grid system
+//
+// Generate semantic grid columns with these mixins.
+
+=make-container($container_size: 1640px, $padding: true)
+  width: 100%
+  margin-right: auto
+  margin-left: auto
+  max-width: $container_size
+=grid-row($gridcount: $grid-columns, $gutter: $grid-gutter-width)
+  display: grid
+  grid-template-columns: repeat($gridcount, 1fr)
+  gap: $gutter
+
+
+=grid-col($gridcol: 1, $gridsize: 4)
+  grid-column: ($gridcol / span) $gridsize
+
+
+=flex-row()
+  display: -ms-flexbox
+  display: flex
+  -ms-flex-wrap: wrap
+  flex-wrap: wrap
+
+
+=make-flex-col($gridcol, $size, $gridsize: 0, $columns: $grid-columns, $col-max-width: 100%)
+  flex: 0 0 percentage($size / $columns)
+  -ms-flex: 0 0 percentage($size / $columns)
+
+  // Add a `max-width` to ensure content within each column does not blow out
+  // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
+  // do not appear to require this.
+  max-width: percentage($size / $columns)
+
+
+=make-flex-col-offset($size, $columns: $grid-columns)
+  $num: $size / $columns
+  margin-left: if($num == 0, 0, percentage($num))

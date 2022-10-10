@@ -1,25 +1,17 @@
 {
-  "name": "baker-design-baseline",
-  "description": "The best Grunt setup on this side of the Mississippi",
+  "name": "barebones-theme",
   "version": "1.0.0",
-  "repository": {
-    "type": "git",
-    "url": "",
-    "private": true
-  },
-  "license": "UNLICENSED",
+  "main": "gulpfile.js",
+  "repository": "git@github.com:sgbakerr/Baker-Design-Baseline.git",
+  "author": "Scott Baker <scott@bakerdesign.co>",
+  "license": "MIT",
   "dependencies": {
-    "grunt": "^1.2.0",
-    "grunt-contrib-clean": "^2.0.0",
-    "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-connect": "^3.0",
-    "grunt-contrib-jshint": "^=3.0",
-    "grunt-contrib-uglify": "^5.0",
-    "grunt-contrib-watch": "^1.1.0",
-    "grunt-sass": "^3.1.0",
-    "grunt-sass-globbing": "^1.5.1",
-    "grunt-shell": "^3.0.1",
-    "node-sass": "^5.0",
-    "sass": "^1.26.3"
+    "fs": "^0.0.1-security",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.55.0"
   }
 }

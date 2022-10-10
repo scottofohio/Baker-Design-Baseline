@@ -1,0 +1,39 @@
+.button, input[type='submit']
+  padding: 15px 30px
+  text-align: center
+  vertical-align: middle
+  user-select: none
+  text-decoration: none
+  background-color: $primary
+  color: #fff
+  // letter-spacing: 1px
+  line-height: 1
+  position: relative
+  // font-weight: 700
+  // text-transform: uppercase
+  font-family: $header-font
+  border: none
+  transition: .5s ease all
+  &:hover 
+    background-color: lighten($primary, 10%)
+    transition: .5s ease all
+  &.arrow-button
+    &:before 
+      content: ""
+    background: url('../images/white-arrow.svg')
+  &.white
+    background-color: #fff
+    color: $primary
+    font-weight: 700
+    text-transform: uppercase
+  &.outline
+    color: $primary
+    border: solid 1px $primary
+    background: #fff
+    &.white 
+      border: solid 1px #fff
+      color: #fff
+      background: transparent
+  &.secondary
+    background-color: $secondary
+    color: $type_color
